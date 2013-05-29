@@ -1,3 +1,5 @@
+
+
 merge.list <- function(x, y=NULL, mergeUnnamed=TRUE, ...) {
   if (is.null(y)) {
     return(as.list(x))
@@ -32,3 +34,28 @@ merge.list <- function(x, y=NULL, mergeUnnamed=TRUE, ...) {
     return(mergedList)
   }
 }
+
+iris
+
+?globalenv
+
+
+
+dict_repl <- function(object, obj_name) {
+  if (class(object)=="data.frame") {
+    paste('"',
+        paste(
+          paste("data.frame(",sep=""),
+          paste("", colnames(object), "=", head(object), "...", sep="", collapse=",\n"),
+          sep=""
+        ),
+          ')"', sep="")
+  } else {
+    object
+#     paste(object, collapse="\n")
+  }
+}
+
+# 
+# cat(dict_repl(iris, "iris"))
+
