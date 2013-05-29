@@ -176,7 +176,7 @@ setMethod(f="summary",
               if (k=="character") {
                 table(unlist(object$data[mask]))
               } else if(k=="pylist") {
-                summary(object$data[mask])
+                list("pylist"=lapply(object$data[mask], summary))
               } else {
                 summary(unlist(object$data[mask]))
               }
@@ -184,6 +184,9 @@ setMethod(f="summary",
             output['count'] <- object$count()
             output
           })
+
+summary(d)
+summary(nested)
 
 setMethod(f="lapply",
           signature="pylist",
