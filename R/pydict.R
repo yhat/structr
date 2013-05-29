@@ -9,9 +9,14 @@ pydict <- setRefClass("pydict",
                           cat(string())
                         },
                         string = function() {
+                          key.strings <- encapsulate(keys()$data)
+                          value.strings <- encapsulate(data)
                           paste("{",
-                                paste(keys()$data, data, sep=": ", collapse=", "),
+                                paste(key.strings, value.strings, sep=": ", collapse=", "),
                                 "}", sep="")
+                        },
+                        count = function() {
+                          length(data)
                         },
                         keys = function() {
                           items <- keymap
@@ -137,6 +142,12 @@ setMethod("seq",
             adict$iterkeys()
           })
 
+setMethod(f="length",
+          signature="pydict",
+          definition=function(x) {
+            x$count()
+          })
+
 
 dict.py <- function(...) {
   data <- list(...)
@@ -151,25 +162,42 @@ dict.py <- function(...) {
 
 zip.dict <- function(x, y) {
   dict <- dict.py()
-  for (i in 1:max(length(x), length(y))) {
+  for (i in 1:min(length(x), length(y))) {
     key <- x[i]
     dict[key] <- y[i]
   }
   dict
 }
 
-# TODO: tuples and lists not working well together 
 zip.tuple <- function(x, y) {
-  alist <- list()
-  for (i in 1:max(length(x), length(y))) {
+  alist <- list.py()
+  for (i in 1:min(length(x), length(y))) {
     key <- x[i]
-    alist <- append(alist, tuple(x[i], y[i]))
+    alist$append(list.py(x[i], y[i]))
   }
   alist
 }
 
-d <- zip.dict(1:100, 1:100 * 10)
+d <- zip.tuple(1:10, 1:100 * 10)
 d
+
+d <- zip.tuple(list.py(1, 2, 3), list.py("a", "b", "c"))
+d
+
+d <- zip.tuple(1:100, 1:100 * 10)
+d
+
+
+d <- zip.dict(1:10, 1:100 * 10)
+d
+
+d <- zip.dict(letters, 1:100 * 10)
+d
+
+
+for (item in seq(zip.tuple(1:10, 1:10))) {
+  print(item)
+}
 
 d <- zip.dict(1:10, 1:100 * 10)
 d

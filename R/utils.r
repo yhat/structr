@@ -40,6 +40,17 @@ iris
 ?globalenv
 
 
+encapsulate <- function(values) {
+  unlist(lapply(values, function(x) {
+    if (class(x)=="character") {
+      paste("'", x, "'", sep="")
+      } else {
+        x
+      }
+  }
+))
+}
+
 
 dict_repl <- function(object, obj_name) {
   if (class(object)=="data.frame") {
