@@ -1,7 +1,7 @@
 library(sets)
 
 pydict <- setRefClass("pydict",
-                      fields = list( data = "list", defaultvalue = "numeric"),
+                      fields = list( data = "list", defaultvalue = "ANY"),
                       methods = list(
                         show = function() {
                           'printing the list'
@@ -76,10 +76,10 @@ pydict <- setRefClass("pydict",
                             value <- unlist(data[key])
                             names(value) <- NULL
                             item <- tuple(key, value)
-                            item <- list(key, value)
+                            item <- list.py(key, value)
                             items$append(item)
                           }
-                          items
+                          seq(items)
                         }
                       ))
 setMethod(f="[",
@@ -100,6 +100,13 @@ setReplaceMethod(f="[",
             x$data[i] <- value
             return (x)
           })
+
+setMethod("seq",
+          signature="pydict",
+          definition=function(adict) {
+            adict$keys()
+          })
+
 
 dict.py <- function(...) {
   data <- list(...)
@@ -166,4 +173,18 @@ for (l in letters) {
   }
 }
 test['a2']
+"x8" %in% test
+"fakething" %in% test
+
+x <- dict.py(a=1, b=21)
+for(key in seq(x)) {
+  print(key)
+}
+
+for (item in x$iteritems()) {
+  print(item)
+}
+
+
+
 

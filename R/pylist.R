@@ -1,4 +1,4 @@
-
+source("R/utils.r")
 
 pylist <- setRefClass("pylist",
                      fields = list( data = "list"),
@@ -23,7 +23,7 @@ pylist <- setRefClass("pylist",
                          data <<- base::append(data, item)
                          TRUE
                        },
-                       prepend = function(newvalue) {
+                       push = function(newvalue) {
                          'adds an item to the beginning of the list'
                          data <<- base::append(list(newvalue), data)
                          TRUE
@@ -73,6 +73,13 @@ pylist <- setRefClass("pylist",
                            slice <- grep(cond, data)  
                          }
                          pylist$new(data=data[slice])
+                       },
+                       contains = function(item){
+                         print(item)
+                         item %in% data
+                       },
+                       items = function() {
+                         data
                        }
                      ))
 
@@ -91,6 +98,11 @@ setMethod(f="[",
             }
           })
 
+setMethod("seq",
+          signature="pylist",
+          definition=function(alist) {
+            alist$data
+          })
 
 setMethod(f="toString",
           signature="pylist",
@@ -173,6 +185,10 @@ setMethod(f="summary",
             output
           })
 
+"+.pylist" <- function(x, y) {
+  pylist$new(data=merge.list(x$data, y$data))
+}
+
 each <- function(alist, fn) {
   for(item in alist$data) {
     fn(item)
@@ -184,11 +200,19 @@ list.py <- function(...) {
 }
 
 
+
+x <- list.py(1, 2, 3)
+y <- list.py(4, 5, "hello")
+x + y
+
+2 %in% x
+
+
 test <- list.py(100, 200)
 test$append(300)
 test$append("hello")
 test$pop()
-test$prepend("hello")
+test$push("hello")
 test$reverse()
 test$count()
 test$insert("hello", 100)
@@ -239,4 +263,12 @@ nested[1][1:2]
 summary(list.py(100, "austin", 200, 400, "austin", "greg"))
 summary(nested)# :(
 
+
+for (i in seq(x)) {
+  print(i)
+}
+
+for (i in x$items()) {
+  print(i)
+}
 
