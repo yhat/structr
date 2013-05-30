@@ -240,7 +240,6 @@ setMethod(f="summary",
             output
           })
 
-
 setMethod(f="lapply",
           signature="pylist",
           definition=function(X, FUN, ...) {
@@ -254,29 +253,29 @@ setMethod(f="sapply",
                          USE.NAMES = USE.NAMES)
           })
 
-setMethod(f="ldply",
-          signature="pylist",
-          definition=function(.data, .fun = NULL, ..., .progress = "none",
-                              .parallel = FALSE) {
-            plyr::ldply(.data$data, .fun = .fun, .progress = .progress,
-                        .parallel = .parallel, ...)
-          })
-
-setMethod(f="llply",
-          signature="pylist",
-          definition=function(.data, .fun = NULL, ..., .progress = "none",
-                              .inform = FALSE, .parallel = FALSE) {
-            plyr::llply(.data$data, .fun = .fun, .progress = .progress,
-                        .inform = .inform, .parallel = .parallel, ...)
-            })
-
-setMethod(f="laply",
-          signature="pylist",
-          definition=function(.data, .fun = NULL, ..., .progress = "none", 
-                              .drop = TRUE, .parallel = FALSE) {
-            plyr::laply(.data$data, .fun = .fun, .progress = .progress, 
-                        .drop = .drop, .parallel = .parallel, ...)
-          })
+# setMethod(f="ldply",
+#           signature="pylist",
+#           definition=function(.data, .fun = NULL, ..., .progress = "none",
+#                               .parallel = FALSE) {
+#             plyr::ldply(.data$data, .fun = .fun, .progress = .progress,
+#                         .parallel = .parallel, ...)
+#           })
+# 
+# setMethod(f="llply",
+#           signature="pylist",
+#           definition=function(.data, .fun = NULL, ..., .progress = "none",
+#                               .inform = FALSE, .parallel = FALSE) {
+#             plyr::llply(.data$data, .fun = .fun, .progress = .progress,
+#                         .inform = .inform, .parallel = .parallel, ...)
+#             })
+# 
+# setMethod(f="laply",
+#           signature="pylist",
+#           definition=function(.data, .fun = NULL, ..., .progress = "none", 
+#                               .drop = TRUE, .parallel = FALSE) {
+#             plyr::laply(.data$data, .fun = .fun, .progress = .progress, 
+#                         .drop = .drop, .parallel = .parallel, ...)
+#           })
 
 setMethod(f="length",
           signature="pylist",

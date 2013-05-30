@@ -1,0 +1,121 @@
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i386-pc-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "foldr"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> options(pager = "console")
+> library('foldr')
+> 
+> assign(".oldSearch", search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("dict.py")
+> ### * dict.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: dict.py
+> ### Title: Creates an instance of a dict
+> ### Aliases: dict.py
+> ### Keywords: dict, dict.py, key/value
+> 
+> ### ** Examples
+> 
+> (x <- dict.py("a"=1, "b"=2, "c"=3))
+{a: 1, b: 2, c: 3}> #{a: 1, b: 2, c: 3}
+> 
+> 
+> 
+> cleanEx()
+> nameEx("list.py")
+> ### * list.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: list.py
+> ### Title: Creates an instance of a list
+> ### Aliases: list.py
+> ### Keywords: list, list.py
+> 
+> ### ** Examples
+> 
+> x <- list.py(1, 2, 3, 4)
+> #[1, 2, 3, 4]
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zip.dict")
+> ### * zip.dict
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zip.dict
+> ### Title: Combine 2 lists into a dict of key/values
+> ### Aliases: zip.dict
+> ### Keywords: dict, lists zip,
+> 
+> ### ** Examples
+> 
+> x <- list.py(1, 2, 3)
+> y <- list.py("a", "b", "c")
+> zip.dict(x, y)
+{1: 'a', 2: 'b', 3: 'c'}> #{1: 'a', 2: 'b', 3: 'c'}
+> zip.dict(y, x)
+{'a': 1, 'b': 2, 'c': 3}> #{'a': 1, 'b': 2, 'c': 3}
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zip.tuple")
+> ### * zip.tuple
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zip.tuple
+> ### Title: Combine 2 lists into a list of lists
+> ### Aliases: zip.tuple
+> ### Keywords: lists, zip
+> 
+> ### ** Examples
+> 
+> x <- list.py(1, 2, 3)
+> y <- list.py(4, 5, 6)
+> zip.tuple(x, y)
+[[1, 4], [2, 5], [3, 6]]> #[[1, 4], [2, 5], [3, 6]]
+> y <- list.py("a", "b", "c")
+> zip.tuple(x, y)
+[[1, 'a'], [2, 'b'], [3, 'c']]> #[[1, 'a'], [2, 'b'], [3, 'c']]
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.29 0 0.31 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

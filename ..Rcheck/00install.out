@@ -1,0 +1,19 @@
+* installing *source* package 'foldr' ...
+** R
+** preparing package for lazy loading
+Creating a generic function for 'seq' from package 'base' in package 'foldr'
+Warning: For function 'seq', signature "pydict": argument in method definition changed from (adict) to (...)
+Warning: For function 'seq', signature "pylist": argument in method definition changed from (alist) to (...)
+Creating a generic function for 'toString' from package 'base' in package 'foldr'
+Creating a generic function for 'paste' from package 'base' in package 'foldr'
+Creating a generic function for 'hist' from package 'graphics' in package 'foldr'
+Creating a generic function for 'plot' from package 'graphics' in package 'foldr'
+Creating a generic function for 'summary' from package 'base' in package 'foldr'
+Creating a generic function for 'lapply' from package 'base' in package 'foldr'
+Creating a generic function for 'sapply' from package 'base' in package 'foldr'
+** help
+*** installing help indices
+** building package indices ...
+** testing if installed package can be loaded
+
+* DONE (foldr)

@@ -1,0 +1,227 @@
+\nonstopmode{}
+\documentclass[a4paper]{book}
+\usepackage[times,inconsolata,hyper]{Rd}
+\usepackage{makeidx}
+\usepackage[utf8,latin1]{inputenc}
+% \usepackage{graphicx} % @USE GRAPHICX@
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge Package `foldr'}}
+\par\bigskip{\large \today}
+\end{center}
+\begin{description}
+\raggedright{}
+\item[Type]\AsIs{Package}
+\item[Version]\AsIs{0.1-1}
+\item[Date]\AsIs{2013-05-29}
+\item[Title]\AsIs{A collection of Python-esque data types}
+\item[Author]\AsIs{Greg Lamp and Austin Ogilvie}
+\item[Maintainer]\AsIs{Greg Lamp }\email{greg@yhathq.com}\AsIs{}
+\item[Depends]\AsIs{R (>= 2.12.0)}
+\item[Imports]\AsIs{plyr, digest}
+\item[Description]\AsIs{foldr provides Python-like data types (list and dict) in R}
+\item[License]\AsIs{FreeBSD}
+\item[URL]\AsIs{https://github.com/yhat/foldr}
+\item[BugReports]\AsIs{https://github.com/yhat/foldr/issues}
+\item[Collate]\AsIs{'pydict.R' 'pylist.R' 'utils.r'}
+\end{description}
+\Rdcontents{\R{} topics documented:}
+\inputencoding{utf8}
+\HeaderA{dict.py}{Creates an instance of a dict}{dict.py}
+\keyword{dict,}{dict.py}
+\keyword{dict.py,}{dict.py}
+\keyword{key/value}{dict.py}
+%
+\begin{Description}\relax
+This is a wrapper function around the \code{pydict\$new}
+that is a little more R friendly.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  dict.py(...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{...}] a series of key/value pairs in the form
+\code{key=value}
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Examples}
+\begin{ExampleCode}
+(x <- dict.py("a"=1, "b"=2, "c"=3))
+#{a: 1, b: 2, c: 3}
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{dict\_repl}{Function for representing hashed objects as strings}{dict.Rul.repl}
+%
+\begin{Description}\relax
+Purely visual.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  dict_repl(object, obj_name)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{object}] an arbitrary thing
+
+\item[\code{obj\_name}] name of the variable as defined by the
+user (not currently being used)
+\end{ldescription}
+\end{Arguments}
+\inputencoding{utf8}
+\HeaderA{encapsulate}{Helper function for making character vectors have quotes around each item when printed to the console.}{encapsulate}
+%
+\begin{Description}\relax
+Helper function for making character vectors have quotes
+around each item when printed to the console.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  encapsulate(values)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{values}] a vector of values
+\end{ldescription}
+\end{Arguments}
+\inputencoding{utf8}
+\HeaderA{list.py}{Creates an instance of a list}{list.py}
+\keyword{list,}{list.py}
+\keyword{list.py}{list.py}
+%
+\begin{Description}\relax
+This is a wrapper function around the \code{pylist\$new}
+that is a little more R friendly.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  list.py(...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{...}] a series of values seperated by a comma. NOTE:
+a vector will be treated as an individual item. i.e.
+\code{list.py(1:100)} will yield a list with 1 item,
+whereas \code{list.py(1, 2, 3, 4)} will yield a list with
+4 items
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Examples}
+\begin{ExampleCode}
+x <- list.py(1, 2, 3, 4)
+#[1, 2, 3, 4]
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{merge.list}{Function that takes 2 lists and merges them fairly effeciently}{merge.list}
+%
+\begin{Description}\relax
+Function that takes 2 lists and merges them fairly
+effeciently
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  merge.list(x, y = NULL, mergeUnnamed = TRUE, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] a list
+
+\item[\code{y}] a second list
+\end{ldescription}
+\end{Arguments}
+\inputencoding{utf8}
+\HeaderA{zip.dict}{Combine 2 lists into a dict of key/values}{zip.dict}
+\keyword{dict,}{zip.dict}
+\keyword{lists}{zip.dict}
+\keyword{zip,}{zip.dict}
+%
+\begin{Description}\relax
+Takes 2 lists and converts them into a key => value
+mapping, which takes the form of a \code{\LinkA{dict}{dict}}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  zip.dict(x, y)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] a list, vector, or list.py
+
+\item[\code{y}] a second list, vector, or list.py
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Examples}
+\begin{ExampleCode}
+x <- list.py(1, 2, 3)
+y <- list.py("a", "b", "c")
+zip.dict(x, y)
+#{1: 'a', 2: 'b', 3: 'c'}
+zip.dict(y, x)
+#{'a': 1, 'b': 2, 'c': 3}
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{zip.tuple}{Combine 2 lists into a list of lists}{zip.tuple}
+\keyword{lists,}{zip.tuple}
+\keyword{zip}{zip.tuple}
+%
+\begin{Description}\relax
+Return a list of 2 item lists, where each list contains
+the i-th element from each of the argument sequences.
+The returned list is truncated in length to the length of
+the shortest argument sequence.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  zip.tuple(x, y)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] a list, vector, or list.py
+
+\item[\code{y}] a second list, vector, or list.py
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Examples}
+\begin{ExampleCode}
+x <- list.py(1, 2, 3)
+y <- list.py(4, 5, 6)
+zip.tuple(x, y)
+#[[1, 4], [2, 5], [3, 6]]
+y <- list.py("a", "b", "c")
+zip.tuple(x, y)
+#[[1, 'a'], [2, 'b'], [3, 'c']]
+\end{ExampleCode}
+\end{Examples}
+\printindex{}
+\end{document}

@@ -91,7 +91,7 @@ pydict <- setRefClass("pydict",
                         },
                         has_key = function(key) {
                           'determines whether or not a key is in the dict'
-                          digest(key) %in% names(data) || key %in% keymap
+                          digest::digest(key) %in% names(data) || key %in% keymap
                         },
                         update = function(adict) {
                           'takes another dict and adds any keys and their 
@@ -117,14 +117,14 @@ pydict <- setRefClass("pydict",
                         },
                         add_key = function(key, value) {
                           'private method for adding a key to the dict'
-                          key.digest <- digest(key)
+                          key.digest <- digest::digest(key)
                           data[key.digest] <<- value
 #                           obj_name <- bquote(..., globalenv())
                           keymap[key.digest] <<- dict_repl(key, "")
                         },
                         get_key = function(key) {
                           'private method for retrieving a key/value from the dict'
-                          key.digest <- digest(key)
+                          key.digest <- digest::digest(key)
                           if (! key.digest %in% names(data)) {
                             key.digest <- names(keymap)[keymap==key]
                           }
@@ -180,8 +180,8 @@ dict.py <- function(...) {
     stop("No keys specified for dictionary")
   }
   keymap <- lapply(names(data), I)
-  names(keymap) <- lapply(keymap, digest)
-  names(data) <- lapply(names(data), digest)
+  names(keymap) <- lapply(keymap, digest::digest)
+  names(data) <- lapply(names(data), digest::digest)
   pydict$new(data=data, keymap=keymap)
 }
 
