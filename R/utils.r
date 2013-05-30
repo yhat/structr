@@ -1,5 +1,8 @@
 
-
+#'Function that takes 2 lists and merges them fairly effeciently
+#'
+#'@param x a list
+#'@param y a second list
 merge.list <- function(x, y=NULL, mergeUnnamed=TRUE, ...) {
   if (is.null(y)) {
     return(as.list(x))
@@ -35,11 +38,10 @@ merge.list <- function(x, y=NULL, mergeUnnamed=TRUE, ...) {
   }
 }
 
-iris
-
-?globalenv
-
-
+#'Helper function for making character vectors have quotes around each item when
+#'printed to the console.
+#'
+#'@param values a vector of values
 encapsulate <- function(values) {
   unlist(lapply(values, function(x) {
     if (class(x)=="character") {
@@ -51,7 +53,12 @@ encapsulate <- function(values) {
 ))
 }
 
-
+#'Function for representing hashed objects as strings
+#'
+#'Purely visual.
+#'
+#'@param object an arbitrary thing
+#'@param obj_name name of the variable as defined by the user (not currently being used)
 dict_repl <- function(object, obj_name) {
   if (class(object)=="data.frame") {
     paste('"',
@@ -63,10 +70,7 @@ dict_repl <- function(object, obj_name) {
           ')"', sep="")
   } else {
     object
-#     paste(object, collapse="\n")
   }
 }
 
-# 
-# cat(dict_repl(iris, "iris"))
 

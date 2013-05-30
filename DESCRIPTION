@@ -1,0 +1,25 @@
+Package: foldr
+Version: 0.1-1
+Date: 2013-05-29
+Title: A collection of Python-esque data types
+Authors@R: c(person("Greg", "Lamp", role = c("aut", "cre"),
+    email = "greg@yhathq.com"),
+    person("Austin", "Ogilvie", role = c("aut", "cre"),
+    email = "austin@yhathq.com")
+    )
+Author: Greg Lamp and Austin Ogilvie
+Maintainer: Greg Lamp <greg@yhathq.com>
+Depends:
+    R (>= 2.12.0),
+    plyr,
+    digest
+Suggests:
+    
+Description: foldr provides Python-like data types (list and dict) in R
+License: FreeBSD
+URL: https://github.com/yhat/foldr
+BugReports: https://github.com/yhat/foldr/issues
+Collate:
+    'pydict.R'
+    'pylist.R'
+    'utils.r'
