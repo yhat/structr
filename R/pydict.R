@@ -92,17 +92,11 @@ pydict <- setRefClass("pydict",
                         clear = function() {
                           data <<- list()
                         },
+                        items = function() {
+                          zip.tuple(keymap, data)
+                        },
                         iteritems = function() {
-                          items <- list.py()
-                          for (key in iterkeys()) {
-                            # TODO: should be a tuple
-                            value <- unlist(.self[key])
-                            names(value) <- NULL
-                            item <- tuple(key, value)
-                            item <- list.py(key, value)
-                            items$append(item)
-                          }
-                          seq(items)
+                          seq(items())
                         },
                         add_key = function(key, value) {
                           key.digest <- digest(key)

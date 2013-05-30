@@ -1,4 +1,7 @@
 source("R/utils.r")
+source("R/general.r")
+library(plyr)
+
 
 pylist <- setRefClass("pylist",
                      fields = list( data = "list"),
@@ -75,7 +78,6 @@ pylist <- setRefClass("pylist",
                          pylist$new(data=data[slice])
                        },
                        contains = function(item){
-                         print(item)
                          item %in% data
                        },
                        items = function() {
@@ -185,8 +187,6 @@ setMethod(f="summary",
             output
           })
 
-summary(d)
-summary(nested)
 
 setMethod(f="lapply",
           signature="pylist",
@@ -196,26 +196,33 @@ setMethod(f="lapply",
 
 setMethod(f="sapply",
           signature="pylist",
-          definition=function(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE) {
-            base::sapply(X$data, FUN, ..., simplify = simplify, USE.NAMES = USE.NAMES)
+          definition=function(X, FUN, ..., simplify = TRUE,USE.NAMES = TRUE) {
+            base::sapply(X$data, FUN, ..., simplify = simplify,
+                         USE.NAMES = USE.NAMES)
           })
 
 setMethod(f="ldply",
           signature="pylist",
-          definition=function(.data, .fun = NULL, ..., .progress = "none", .parallel = FALSE) {
-            plyr::ldply(.data$data, .fun = .fun, .progress = .progress, .parallel = .parallel, ...)
+          definition=function(.data, .fun = NULL, ..., .progress = "none",
+                              .parallel = FALSE) {
+            plyr::ldply(.data$data, .fun = .fun, .progress = .progress,
+                        .parallel = .parallel, ...)
           })
 
 setMethod(f="llply",
           signature="pylist",
-          definition=function(.data, .fun = NULL, ..., .progress = "none", .inform = FALSE, .parallel = FALSE) {
-            plyr::llply(.data$data, .fun = .fun, .progress = .progress, .inform = .inform, .parallel = .parallel, ...)
+          definition=function(.data, .fun = NULL, ..., .progress = "none",
+                              .inform = FALSE, .parallel = FALSE) {
+            plyr::llply(.data$data, .fun = .fun, .progress = .progress,
+                        .inform = .inform, .parallel = .parallel, ...)
             })
 
 setMethod(f="laply",
           signature="pylist",
-          definition=function(.data, .fun = NULL, ..., .progress = "none", .drop = TRUE, .parallel = FALSE) {
-            plyr::laply(.data$data, .fun = .fun, .progress = .progress, .drop = .drop, .parallel = .parallel, ...)
+          definition=function(.data, .fun = NULL, ..., .progress = "none", 
+                              .drop = TRUE, .parallel = FALSE) {
+            plyr::laply(.data$data, .fun = .fun, .progress = .progress, 
+                        .drop = .drop, .parallel = .parallel, ...)
           })
 
 setMethod(f="length",
@@ -238,7 +245,7 @@ list.py <- function(...) {
   pylist$new(data=list(...))
 }
 
-
+d <- list.py(1, 2, 3)
 
 x <- list.py(1, 2, 3)
 y <- list.py(4, 5, "hello")
@@ -313,3 +320,7 @@ for (i in x$items()) {
 
 lapply(d, print)
 ldply(d, function(x) { x + 1 }, .progress="text")
+
+
+summary(d)
+summary(nested)
