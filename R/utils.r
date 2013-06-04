@@ -43,14 +43,13 @@ merge.list <- function(x, y=NULL, mergeUnnamed=TRUE, ...) {
 #'
 #'@param values a vector of values
 encapsulate <- function(values) {
-  unlist(lapply(values, function(x) {
-    if (class(x)=="character") {
+  lapply(values, function(x) {
+    if (is.character(x)) {
       paste("'", x, "'", sep="")
-      } else {
-        x
-      }
-  }
-))
+    } else {
+      x
+    }
+  })
 }
 
 #'Function for representing hashed objects as strings

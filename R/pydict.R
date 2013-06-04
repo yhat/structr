@@ -101,7 +101,8 @@ pydict <- setRefClass("pydict",
                         update = function(adict) {
                           'takes another dict and adds any keys and their 
                           corresponding values to the dict'
-                          for (key in adict$iterkeys()) {
+#                           for (key in adict$iterkeys()) {
+                          for (key in unlist(adict$keys()$data)) {
                             if (! has_key(key)) {
                               add_key(key, adict[key])
                             }
@@ -110,6 +111,7 @@ pydict <- setRefClass("pydict",
                         clear = function() {
                           'removes all data from the dict'
                           data <<- list()
+                          keymap <<- list()
                         },
                         items = function() {
                           'returns the keys and values of the dict as a
