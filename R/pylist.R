@@ -157,11 +157,10 @@ setMethod(f="[",
             }
           })
 
-setMethod("seq",
-          signature="pylist",
-          definition=function(alist) {
-            alist$data
-          })
+# setMethod(f="seq", "pylist", definition=function(...) {
+#             print(...)
+#             alist$data
+#           })
 
 setMethod(f="toString",
           signature="pylist",

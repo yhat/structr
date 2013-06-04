@@ -9,11 +9,11 @@ Authors@R: c(person("Greg", "Lamp", role = c("aut", "cre"), email =
 Author: Greg Lamp and Austin Ogilvie
 Maintainer: Greg Lamp <greg@yhathq.com>
 Depends: R (>= 2.12.0)
-Imports: plyr, digest
+Imports: plyr, digest, methods
 Suggests: testthat (>= 0.2)
 Description: foldr provides Python-like data types (list and dict) in R
 License: FreeBSD
 URL: https://github.com/yhat/foldr
 BugReports: https://github.com/yhat/foldr/issues
 Collate: 'pydict.R' 'pylist.R' 'utils.r'
-Built: R 2.14.1; ; 2013-06-04 15:07:58 UTC; windows
+Built: R 2.14.1; ; 2013-06-04 19:22:58 UTC; windows

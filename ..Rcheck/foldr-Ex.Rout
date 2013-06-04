@@ -39,7 +39,7 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 > (x <- dict.py("a"=1, "b"=2, "c"=3))
-{a: 1, b: 2, c: 3}> #{a: 1, b: 2, c: 3}
+{'a': 1, 'b': 2, 'c': 3}> #{a: 1, b: 2, c: 3}
 > 
 > 
 > 
@@ -109,7 +109,7 @@ Type 'q()' to quit R.
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.36 0 0.51 NA NA 
+Time elapsed:  0.31 0.03 0.35 NA NA 
 > grDevices::dev.off()
 null device 
           1 

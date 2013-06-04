@@ -156,11 +156,11 @@ setReplaceMethod(f="[",
             return (x)
           })
 
-setMethod("seq",
-          signature="pydict",
-          definition=function(adict) {
-            adict$iterkeys()
-          })
+# setMethod("seq",
+#           signature="pydict",
+#           definition=function(adict) {
+#             adict$iterkeys()
+#           })
 
 setMethod(f="length",
           signature="pydict",
@@ -200,7 +200,7 @@ is.dict.py <- function(object) {
 #'Combine 2 lists into a dict of key/values
 #'
 #'Takes 2 lists and converts them into a key => value mapping, which
-#'takes the form of a \code{\link{dict}}.
+#'takes the form of a \code{\link{dict.py}}.
 #'
 #'@param x a list, vector, or list.py
 #'@param y a second list, vector, or list.py

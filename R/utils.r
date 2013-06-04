@@ -3,6 +3,8 @@
 #'
 #'@param x a list
 #'@param y a second list
+#'@param mergeUnnamed boolean for whether or not to include list items with no names
+#'@param ... whatever else you've got
 merge.list <- function(x, y=NULL, mergeUnnamed=TRUE, ...) {
   if (is.null(y)) {
     return(as.list(x))
