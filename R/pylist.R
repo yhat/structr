@@ -1,11 +1,15 @@
 # source("R/utils.r")
-# source("R/general.r")
 # library(plyr)
 
 
 pylist <- setRefClass("pylist",
                      fields = list( data = "list"),
                      methods = list(
+                       init = function() {
+                         methods <- getRefClass(class(.self))$methods()
+                         eval(parse(text=paste(".self$", methods)))
+                         .self
+                       },
                        show = function() {
                          'visual representation of the list
                           Examples
@@ -70,7 +74,7 @@ pylist <- setRefClass("pylist",
                          Examples
                          ===================================
                          "
-                         if (pos > count()) {
+                         if (pos > count() || pos < 1) {
                            return (FALSE)
                          } else {
                            data <<- base::append(base::append(data[1:pos], item),
@@ -309,7 +313,8 @@ each <- function(alist, fn) {
 #'x <- list.py(1, 2, 3, 4)
 #'#[1, 2, 3, 4]
 list.py <- function(...) {
-  pylist$new(data=list(...))
+  newlist <- pylist$new(data=list(...))
+  newlist$init()
 }
 
 is.list.py <- function(object) {

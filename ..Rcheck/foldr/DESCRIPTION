@@ -15,4 +15,4 @@ License: FreeBSD
 URL: https://github.com/yhat/foldr
 BugReports: https://github.com/yhat/foldr/issues
 Collate: 'pydict.R' 'pylist.R' 'utils.r'
-Built: R 2.14.1; ; 2013-05-30 21:35:53 UTC; windows
+Built: R 2.14.1; ; 2013-05-31 14:22:15 UTC; windows

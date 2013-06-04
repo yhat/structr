@@ -2,6 +2,11 @@
 pydict <- setRefClass("pydict",
                       fields = list( data = "list", defaultvalue = "ANY", keymap = "list"),
                       methods = list(
+                        init = function() {
+                          methods <- getRefClass(class(.self))$methods()
+                          eval(parse(text=paste(".self$", methods)))
+                          .self
+                        },
                         show = function() {
                           'visual representation of the dict'
                           cat(string())
@@ -182,7 +187,8 @@ dict.py <- function(...) {
   keymap <- lapply(names(data), I)
   names(keymap) <- lapply(keymap, digest::digest)
   names(data) <- lapply(names(data), digest::digest)
-  pydict$new(data=data, keymap=keymap)
+  newdict <- pydict$new(data=data, keymap=keymap)
+  newdict$init()
 }
 
 is.dict.py <- function(object) {
