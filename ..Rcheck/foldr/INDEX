@@ -4,6 +4,7 @@ dict_repl               Function for representing hashed objects as
 encapsulate             Helper function for making character vectors
                         have quotes around each item when printed to
                         the console.
+foldr                   dicts and lists in R
 list.py                 Creates an instance of a list
 merge.list              Function that takes 2 lists and merges them
                         fairly effeciently

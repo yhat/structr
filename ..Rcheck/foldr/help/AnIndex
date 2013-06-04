@@ -1,6 +1,8 @@
+foldr-package	foldr
 dict.py	dict.py
 dict_repl	dict_repl
 encapsulate	encapsulate
+foldr	foldr
 list.py	list.py
 merge.list	merge.list
 zip.dict	zip.dict
