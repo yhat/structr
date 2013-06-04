@@ -15,6 +15,7 @@ pydict <- setRefClass("pydict",
                           'string representation of the dict'
                           key.strings <- encapsulate(keys()$data)
                           value.strings <- encapsulate(data)
+                          value.strings <- lapply(value.strings, unstringify.if.df)
                           paste("{",
                                 paste(key.strings, value.strings, sep=": ", collapse=", "),
                                 "}", sep="")
@@ -124,6 +125,11 @@ pydict <- setRefClass("pydict",
                         },
                         add_key = function(key, value) {
                           'private method for adding a key to the dict'
+
+                          if (class(value)=="data.frame") {
+                            value <- paste("pickled: ", stringify.object(value), sep="")
+                          }
+
                           key.digest <- digest::digest(key)
                           data[key.digest] <<- value
 #                           obj_name <- bquote(..., globalenv())
@@ -135,9 +141,15 @@ pydict <- setRefClass("pydict",
                           if (! key.digest %in% names(data)) {
                             key.digest <- names(keymap)[keymap==key]
                           }
-                          item <- data[key.digest]  
+                          item <- data[key.digest]
+                          
                           names(item) <- NULL
-                          unlist(item)
+                          item <- unlist(item)
+                          if (is.character(item) & substring(item, 1, 9)=="pickled: ") {
+                            item <- substring(item, 10)
+                            item <- unstringify.object(item)
+                          }
+                          item
                         }
                       ))
 setMethod(f="[",

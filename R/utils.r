@@ -74,4 +74,20 @@ dict_repl <- function(object, obj_name) {
   }
 }
 
+unstringify.if.df <- function(x) {
+  if (is.character(x) & substring(x, 1, 9)=="pickled: ") {
+    return (unstringify.object(substring(x, 10)))
+  } else {
+    return (x)
+  }
+}
 
+stringify.object <- function(x) {
+  x <- serialize(x, NULL, ascii=TRUE)
+  rawToChar(x)
+}
+
+unstringify.object <- function(x) {
+  x <- charToRaw(x)
+  unserialize(x)
+}
