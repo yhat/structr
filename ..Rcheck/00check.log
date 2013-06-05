@@ -1,0 +1,213 @@
+* using log directory ‘/Users/glamp/repos/yhat/foldr/..Rcheck’
+* using R version 3.0.0 (2013-04-03)
+* using platform: x86_64-apple-darwin10.8.0 (64-bit)
+* using session charset: UTF-8
+* checking for file ‘./DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘foldr’ version ‘0.1-1’
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... WARNING
+Found the following executable files:
+  .git/objects/02/8b759d57deca53b9eaa272933ee83e8e3b82c1
+  .git/objects/02/9732d8d26891a70fe1c680d25376b2403dfd08
+  .git/objects/02/a83cf0347ca509420ba32e7ab358dc2c9dbe44
+  .git/objects/03/12cc889f1b9997e0843185764471b9a57032f9
+  .git/objects/04/92d0f6b3f0a791002ab4058870f4893a436728
+  .git/objects/05/9d2a401365c660531d54af0e39bafea7cccc68
+  .git/objects/05/b04bafe2318974bca8f54ca0ff997ca7f029fb
+  .git/objects/09/365be3e4dcc3d758fb122e2b949b7ef7e1279f
+  .git/objects/09/f70f25a7b8f914e614a74670a154bd1b8d2206
+  .git/objects/0b/6fd09b90d55f2d0b460bf5ab737206178594f3
+  .git/objects/0b/c579b9b0762aaa389f5889e2538c414b5bab49
+  .git/objects/0f/4610bcf689419abb76a8c50a06db8f1f80da11
+  .git/objects/10/a5003f1e844701d68e8aeeef281d2cb5628a41
+  .git/objects/12/3a9267a76f2e95f750c598d50c78da92cd745a
+  .git/objects/18/6f2120b26ec1b41c644d04eaac8c293de15e63
+  .git/objects/18/9f10fab4c1acf4020ad54f5d7b5f42c0296455
+  .git/objects/19/7bc8f83b262a161e8cf9c4a78c2002565a5d37
+  .git/objects/1b/e78a7ba0594eb5e058599f8083a102399da8b1
+  .git/objects/1f/089591abd2b5486ef8e272c94dc8240aac2142
+  .git/objects/1f/2a8b0861e41ecb66ac43d801f53b50b69dff26
+  .git/objects/21/d47b88cee7dd76f545f5d9da38d6c1f4f885ed
+  .git/objects/23/96d5d70b31c32d58a3c926458f4a4d83b46fa6
+  .git/objects/23/c07cae0c675637b64b146867ef9dee9343ea53
+  .git/objects/26/3d3159a0ff56d1df65a88df8c32e7275ea8eb7
+  .git/objects/27/75f1340fd7f3c6412c524aff676d1809869b27
+  .git/objects/27/cea5fc2fbe443d903582b1c220b0a2e94ae753
+  .git/objects/2b/0ffa3562aced4ec1ddc21cfbe38dbeda6ab381
+  .git/objects/30/f3bda214982d4bcbb6ab8a057ac4cfc5e21afa
+  .git/objects/32/e26cfd145202cdb903a853daef4ead72ff9f08
+  .git/objects/39/d692fd5a2a7bf0aff757a59b9fde4c63004be8
+  .git/objects/3a/4536fee45285f0c90c4153774c0db0641d51ef
+  .git/objects/3a/74e4aa325f4f89507cdeec5dc7acc00df59dcf
+  .git/objects/44/2ed2b110edd7f43a430d13ba247eb8268ce53b
+  .git/objects/45/869ca1e6ea1f3b4733b905cffc10baa2ce0549
+  .git/objects/46/7e3db8658384b7e4f683f56a89839964180d71
+  .git/objects/47/0289da8b374f60b2d8e6c13da7847ead604e25
+  .git/objects/47/cf63fdfde9c350a788435dee697b0ee3f1ed82
+  .git/objects/4e/36efe0ea9395682161c86eb53c7ef17bca56c1
+  .git/objects/4e/51ffad87fb0c524b4a7eb75439159cb2d06c90
+  .git/objects/51/38f79e49716cf2285c9b4cf62046db86483d5e
+  .git/objects/52/ae937d284eafc98efe6a38a97750dedaf7776a
+  .git/objects/54/82cfd5d7bb3b56e51e995521be9143a0a11391
+  .git/objects/54/8553cf835b39c115d5db1e86a77c6662e60b94
+  .git/objects/57/4d8589e14cff9222a56e1ec2afcfd5dd5a50f5
+  .git/objects/58/cba2022120b685e0ad1e15c4e6031367c92481
+  .git/objects/5e/54c0186fe296141aec59824c1657651df06e71
+  .git/objects/5f/6d4de04978ccbfc9c4f85f5ce3faabe006ebb2
+  .git/objects/5f/8bf47a357d8f7c3630d90256bbc32d6363a148
+  .git/objects/62/d2810e80a2d4b72a096c14fcf1cf8235b61bbe
+  .git/objects/65/2b64228531d787a73dbbcb7673d3645e6c8227
+  .git/objects/65/a769861ae3ada2762ac98a038a3701da60f684
+  .git/objects/68/08cb88b36f31f3fe72adf8c98d1678c3289e48
+  .git/objects/68/14cfb68ab42bb5eefcd50e1adde50858b89d64
+  .git/objects/68/18f331f8c4ff25dcccacf51efe3554e0c2ac80
+  .git/objects/6c/38bf7a1e6ab981a1a71231ffb7266eb891cd79
+  .git/objects/6d/b529b006877b3b06062844d65db7225d4977de
+  .git/objects/6f/058f3dc2e565aa48e2ad640123d3d69c9c5945
+  .git/objects/6f/ed1213d5fa99d89fc3fb20a31656c5fd0459f5
+  .git/objects/71/795156d889f8ea82987fb83d57adb16bfd008a
+  .git/objects/76/cf79fed24b46f3672938cd6cc6c4c732f4904a
+  .git/objects/78/0126a9e4652519f45aab5afe6c09ba3547c1cd
+  .git/objects/7b/6f0145551bd24b80a8ed8aa5cb5a7ddf0355e7
+  .git/objects/7d/3e97283c2da052176c5db4651371dddb8e4118
+  .git/objects/7e/6fbaf5d1fae51841317e89426713a7459eeeb9
+  .git/objects/7f/fd0959193e076293e1646fd1237ee58d6620ee
+  .git/objects/80/e83c570314afbebe9aaec41425e56af70c03f8
+  .git/objects/81/c273f103e4459e40054fb5b8a41e03c157fa16
+  .git/objects/89/97751e0ea5ea119a25b1d1c7933b489ec7cd5f
+  .git/objects/8c/2298d940cd6d29e0ba4a253f69f4411d5b65bb
+  .git/objects/8e/3c2ebc99e2e337f7d69948b93529a437590b27
+  .git/objects/94/2e79ccda0b3d96b0b58d4691f5febcbd48b696
+  .git/objects/9a/c45c6dc215ba5b71e0b8d1c0aabd18a58271e8
+  .git/objects/9b/1d5fcb46559f530579ac605430464a4ecebffc
+  .git/objects/9f/643b1bf9bf58088ef1673f151c3b5c08bbc942
+  .git/objects/9f/a7d4b594b23cfaaca4419df6aa99764cb7c3d4
+  .git/objects/a5/a56804a636803060b6e5c2d0f4d2cfb8ff1c08
+  .git/objects/a7/55ecc9db68b644cfad5533964a79328b5765ba
+  .git/objects/a9/b29cf6bc4a07e48a09e39e357075337d0d7712
+  .git/objects/ac/286b013678473f82278db96bac96e48b0117ce
+  .git/objects/ac/8cebe536520a337d5bd7513e2782abdaf40cae
+  .git/objects/ad/93353c3ea20196e4e85f3ce3ea15312dfd00c8
+  .git/objects/b0/721d4fc99156237124677b66fce69cbf785519
+  .git/objects/b7/9a4836561fda4000aca10f8ae53f1105b72fa9
+  .git/objects/b9/d28c521c5f232dbb61903efabf3c86018304b3
+  .git/objects/bd/f3991bd80c3ab42d403a5c22abf840de158db5
+  .git/objects/bf/3a9e8794a1fd08d996b7c16ce0873f6c3845fd
+  .git/objects/bf/93d319824ac096d10860697db7c046aa652baa
+  .git/objects/c1/a631bf4594d1ce06d9ca37fe74135f26855052
+  .git/objects/c3/55ce3663446b34e18c9b8fd7e554e0427eb301
+  .git/objects/c4/ebe42ccf46d478092a77de4e9bb9aaaefe6fdd
+  .git/objects/c5/02b5648e768cd2d435efe696dc7758be20234c
+  .git/objects/c5/8c4a18c0de958c30cf534b6a3ef18162d5ec99
+  .git/objects/c5/ad073e3e0f6cdbeb50a0f5665b383d22407480
+  .git/objects/c6/89cd7a3ceb20c04d2d3ddec8d02af0403262b0
+  .git/objects/c6/d047cbca10a7546f94885b0b575fdb5745f520
+  .git/objects/c7/3f14a42b9a92379f79f081dc2424789a829ab3
+  .git/objects/c9/888a640413d0f7b78bec6a8abc84e0130dd95c
+  .git/objects/ce/1571750a194d395cd9eb6f689aaec7a8b12b8b
+  .git/objects/cf/17ea5daf7c2b790e10005f2c4d9340763a3be6
+  .git/objects/cf/8511eb197bc46e68d891f3735fc8bd69db749f
+  .git/objects/d1/1d96d7de6c442d2953aa9b5543a5c070c05ae2
+  .git/objects/d1/8708336182d399b74592e7bd0762d244e409d7
+  .git/objects/d3/1e51b36ff072b4d90984de9ee3e36b5da91c0a
+  .git/objects/d4/46d8c6e09f54437bd77ef6e34be73b96436e5f
+  .git/objects/d5/f06fb112a8b8a9f12e989dfdea0d7951b7519d
+  .git/objects/d6/8c06f0985bc8b2bb545786302ca399d65dfcc2
+  .git/objects/d8/ddf6a0d09735bf5f33e8a2dc56fa0103a49fd0
+  .git/objects/db/fe89fd5c80dab3869fbf30c35432c9c7fc3ebe
+  .git/objects/dc/fbf95c07cfc21f69e0a8dce56784f88a8dc676
+  .git/objects/de/61b144990b7739c31c7f079b1730da7eaa60c2
+  .git/objects/de/e8cba016bd108348d4b3e033568f4e3cd84c17
+  .git/objects/df/de657de34393f48a3046299a5a0defcba089ba
+  .git/objects/e0/32da9ff7ce32d3ec37e3e32369f9d7c1b63291
+  .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+  .git/objects/e8/be584176209853ddf5c3337f6595b75bf519ea
+  .git/objects/e9/a4100ea1af5808ac26ecf034437b7aaf7faee6
+  .git/objects/ea/cdcff0d622cbbd3299809ff6787b41e5c5efa5
+  .git/objects/ea/cfaed1bf30c715254839b2948ffbbc044099c3
+  .git/objects/ee/669ad3de0c63f745f536f68cc4ff43692053a8
+  .git/objects/f4/8298344c0616c25886099af024762eb04be92a
+  .git/objects/f4/f7fd6be8f8d5c8c9546a8a93c448a9d980b071
+  .git/objects/f4/fe7bb8d0d733cf7f45788dd49112e98b5d926e
+  .git/objects/f7/72382fb98b1f2de6d6e00d569ca1d8d6416eb3
+  .git/objects/fb/3c2ec600b90abc63e472b6d26d3a1c19ea842f
+  .git/objects/fb/ab1d13e35d22e6e7df9f50ea361ecfa5352e3b
+  .git/objects/ff/f8367da6b10981453bb4d37196f9e987d099b6
+Source packages should not contain undeclared executable files.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .RData
+  .Rhistory
+  .gitignore
+  ..Rcheck
+  .Rproj.user
+  .git
+These were most likely included in error. See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘foldr’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directory with the name of a check directory:
+  ./..Rcheck
+Most likely, these were included erroneously.
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking for unstated dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+%+%: no visible binding for global variable ‘x’
+%+%: no visible binding for global variable ‘y’
++.py: no visible binding for global variable ‘x’
++.py: no visible binding for global variable ‘y’
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented S4 methods:
+  generic '[' and siglist 'pydict'
+  generic '[' and siglist 'pylist'
+  generic '[<-' and siglist 'pydict'
+  generic '[<-' and siglist 'pylist'
+  generic 'as.character' and siglist 'pylist'
+  generic 'cos' and siglist 'pylist'
+  generic 'cumsum' and siglist 'pylist'
+  generic 'length' and siglist 'pydict'
+  generic 'length' and siglist 'pylist'
+  generic 'sign' and siglist 'pylist'
+  generic 'sin' and siglist 'pylist'
+  generic 'sum' and siglist 'pylist'
+All user-level objects in a package (including S4 classes and methods) should have documentation entries.
+See the chapter ‘Writing R documentation files’ in the ‘Writing R Extensions’ manual.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... OK
+* checking for unstated dependencies in tests ... OK
+* checking tests ... OK
+  Running ‘run-all.R’
+* checking PDF version of manual ... OK
+WARNING: There were 3 warnings.
+NOTE: There were 2 notes.
+See
+  ‘/Users/glamp/repos/yhat/foldr/..Rcheck/00check.log’
+for details.

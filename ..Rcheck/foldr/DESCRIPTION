@@ -3,9 +3,11 @@ Type: Package
 Version: 0.1-1
 Date: 2013-05-29
 Title: A collection of Python-esque data types
-Authors@R: c(person("Greg", "Lamp", role = c("aut", "cre"), email =
-        "greg@yhathq.com"), person("Austin", "Ogilvie", role = c("aut",
-        "cre"), email = "austin@yhathq.com") )
+Authors@R: c(person("Greg", "Lamp", role = c("aut", "cre"),
+    email = "greg@yhathq.com"),
+    person("Austin", "Ogilvie", role = c("aut", "cre"),
+    email = "austin@yhathq.com")
+    )
 Author: Greg Lamp and Austin Ogilvie
 Maintainer: Greg Lamp <greg@yhathq.com>
 Depends: R (>= 2.12.0)
@@ -16,4 +18,4 @@ License: FreeBSD
 URL: https://github.com/yhat/foldr
 BugReports: https://github.com/yhat/foldr/issues
 Collate: 'pydict.R' 'pylist.R' 'utils.r'
-Built: R 2.14.1; ; 2013-06-04 20:27:00 UTC; windows
+Built: R 3.0.0; ; 2013-06-05 01:15:00.989 UTC; unix

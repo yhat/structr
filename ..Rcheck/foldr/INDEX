@@ -1,12 +1,24 @@
-dict.py                 Creates an instance of a dict
-dict_repl               Function for representing hashed objects as
-                        strings
-encapsulate             Helper function for making character vectors
-                        have quotes around each item when printed to
-                        the console.
-foldr                   dicts and lists in R
-list.py                 Creates an instance of a list
-merge.list              Function that takes 2 lists and merges them
-                        fairly effeciently
-zip.dict                Combine 2 lists into a dict of key/values
-zip.tuple               Combine 2 lists into a list of lists
+as.character                                    Turns a list into a character vector.
+cos                                             Calculates the cos of the items in a list
+cumsum                                          Calculates the cumsum of the items in a list
+dict.py                                         Creates an instance of a dict
+dict_repl                                       Function for representing hashed objects as strings
+encapsulate                                     Helper function for making character vectors have quotes around each item when printed to the
+                                                console.
+hist                                            Plots a histogram of the items of a list.
+is.dict.py                                      Determines whether or not an object is an instance of a dictionary.
+is.list.py                                      Determines whether or not an object is an instance of a list
+lapply                                          Wrapper around 'lapply'.
+length                                          Function for getting the number of items in a dictionary.
+list.py                                         Creates an instance of a list
+merge.list                                      Function that takes 2 lists and merges them fairly effeciently
+paste                                           Turns a list into a printable string
+plot                                            Plots a scatterplot of the items of a list.
+sapply                                          Wrapper around 'sapply'.
+sign                                            Calculates the sign of the items in a list
+sin                                             Calculates the sin of the items in a list
+sum                                             Calculates the sum of the items in a list
+summary                                         Creates a summary of the items in a list.
+toString                                        Turns a list into a string.
+zip.dict                                        Combine 2 lists into a dict of key/values
+zip.tuple                                       Combine 2 lists into a list of lists

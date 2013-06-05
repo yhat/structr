@@ -142,6 +142,10 @@ pylist <- setRefClass("pylist",
                        }
                      ))
 
+#'Get the value of an index of a list.
+#'
+#'You can use the adict[idx] syntax to access items from within
+#'a list--much like Python, Ruby, or Perl.
 setMethod(f="[",
           signature="pylist",
           definition=function(x, i, j, drop) {
@@ -157,74 +161,128 @@ setMethod(f="[",
             }
           })
 
+setReplaceMethod(f="[",
+          signature="pylist",
+          definition=function(x, i, j, value) {
+            if (length(x) < i) {
+              stop(paste(i, "is out of bounds."))
+            }
+            x$data[i] <- value
+            return (x)
+            })
+
 # setMethod(f="seq", "pylist", definition=function(...) {
 #             print(...)
 #             alist$data
 #           })
 
+#'Turns a list into a string.
+#'
+#'Generic function that calls the string method for a list.
 setMethod(f="toString",
           signature="pylist",
           definition=function(x, ...) {
             x$string()
           })
 
+#'Turns a list into a character vector.
+#'
+#'Generic function that calls the string method for a list.
+#'@param x a list
+#'@param ... named args
+#'@export
+#'
+#'@examples
+#'as.character(list.py(1, 2, 3, 4))
 setMethod(f="as.character",
           signature="pylist",
           definition=function(x, ...) {
             x$string()
           })
 
+#'Turns a list into a printable string
+#'
+#'Generic function that calls the toString method for a list.
 setMethod(f="paste",
           signature="pylist",
           definition=function(x,  ..., sep=" ", collapse=NULL) {
             base::paste(toString(x), sep=sep, collapse=collapse)
           })
 
+#'Plots a histogram of the items of a list.
+#'
+#'Generic function that plots a histogram of the items in a list.
 setMethod(f="hist",
           signature="pylist",
           definition=function(x) {
             hist(unlist(x$data))
           })
 
+#'Plots a scatterplot of the items of a list.
+#'
+#'Generic function that plots a scatterplot of the items in a list.
 setMethod(f="plot",
           signature="pylist",
           definition=function(x) {
             plot(unlist(x$data))
           })
 
-# built in numeric functions
 # need to add these: http://www.statmethods.net/management/functions.html
+
+#'Calculates the sum of the items in a list
+#'
+#'Generic function for caclulating the sum of the items in a list. If an item is
+#'not numeric an error occurs.
 setMethod(f="sum",
           signature="pylist",
           definition=function(x) {
             sum(unlist(x$data))
           })
 
+#'Calculates the cumsum of the items in a list
+#'
+#'Generic function for caclulating the cumsum of the items in a list. If an item is
+#'not numeric an error occurs.
 setMethod(f="cumsum",
           signature="pylist",
           definition=function(x) {
             cumsum(unlist(x$data))
           })
 
+#'Calculates the sin of the items in a list
+#'
+#'Generic function for caclulating the sin of the items in a list. If an item is
+#'not numeric an error occurs.
 setMethod(f="sin",
           signature="pylist",
           definition=function(x) {
             sin(unlist(x$data))
           })
 
+#'Calculates the cos of the items in a list
+#'
+#'Generic function for caclulating the cos of the items in a list. If an item is
+#'not numeric an error occurs.
 setMethod(f="cos",
           signature="pylist",
           definition=function(x) {
             cos(unlist(x$data))
           })
 
+#'Calculates the sign of the items in a list
+#'
+#'Generic function for caclulating the sign of the items in a list. If an item is
+#'not numeric an error occurs.
 setMethod(f="sign",
           signature="pylist",
           definition=function(x) {
             sign(unlist(x$data))
           })
-# end numeric functions
 
+#'Creates a summary of the items in a list.
+#'
+#'Sumamrizes the list by data type. Each data type gets it's own summary with
+#'the results put into a native R list.
 setMethod(f="summary",
           signature="pylist",
           definition=function(object, ...) {
@@ -243,12 +301,18 @@ setMethod(f="summary",
             output
           })
 
+#'Wrapper around \code{lapply}.
+#'
+#'Automatically invotes \code{lapply} on the items in the list.
 setMethod(f="lapply",
           signature="pylist",
           definition=function(X, FUN, ...) {
             base::lapply(X$data, FUN, ...)
           })
 
+#'Wrapper around \code{sapply}.
+#'
+#'Automatically invotes \code{sapply} on the items in the list.
 setMethod(f="sapply",
           signature="pylist",
           definition=function(X, FUN, ..., simplify = TRUE,USE.NAMES = TRUE) {
@@ -280,21 +344,14 @@ setMethod(f="sapply",
 #                         .drop = .drop, .parallel = .parallel, ...)
 #           })
 
+#'Function for getting the number of items in a list
+#'
+#'Use much like length(list(1, 2, 3)) or length(c(1, 2, 3)).
 setMethod(f="length",
           signature="pylist",
           definition=function(x) {
             x$count()
           })
-
-"+.pylist" <- function(x, y) {
-  pylist$new(data=merge.list(x$data, y$data))
-}
-
-each <- function(alist, fn) {
-  for(item in alist$data) {
-    fn(item)
-  }
-}
 
 #'Creates an instance of a list
 #'
@@ -316,9 +373,25 @@ list.py <- function(...) {
   newlist$init()
 }
 
+#'Determines whether or not an object is an instance of a 
+#'list
+#'
+#'Determines the class of an object and checks to see if it's a list
+#'
+#'@param object any object
+#'@export
+#'
+#'@examples
+#'x <- list.py("a")
+#'is.list.py(x)
+#'#TRUE
+#'x <- 1:10
+#'is.dict.py(x)
+#'#FALSE
 is.list.py <- function(object) {
   class(object)=="pylist"
 }
+
 
 "+.py" <- function(e1, e2) {
   if (is.list.py(e1) & is.list.py(e2)) {
@@ -330,6 +403,9 @@ is.list.py <- function(object) {
 
 "%+%" <- `+.py`
 
+"+.pylist" <- function(x, y) {
+  pylist$new(data=merge.list(x$data, y$data))
+}
 
 # 
 # d <- list.py(1, 2, 3)

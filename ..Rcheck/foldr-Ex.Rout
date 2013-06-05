@@ -1,8 +1,7 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
-Platform: i386-pc-mingw32/i386 (32-bit)
+R version 3.0.0 (2013-04-03) -- "Masked Marvel"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -21,10 +20,26 @@ Type 'q()' to quit R.
 > pkgname <- "foldr"
 > source(file.path(R.home("share"), "R", "examples-header.R"))
 > options(warn = 1)
-> options(pager = "console")
 > library('foldr')
 > 
-> assign(".oldSearch", search(), pos = 'CheckExEnv')
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("as.character")
+> ### * as.character
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: as.character
+> ### Title: Turns a list into a character vector.
+> ### Aliases: as.character
+> 
+> ### ** Examples
+> 
+> as.character(list.py(1, 2, 3, 4))
+[1] "[1, 2, 3, 4]"
+> 
+> 
+> 
 > cleanEx()
 > nameEx("dict.py")
 > ### * dict.py
@@ -40,6 +55,53 @@ Type 'q()' to quit R.
 > 
 > (x <- dict.py("a"=1, "b"=2, "c"=3))
 {'a': 1, 'b': 2, 'c': 3}> #{a: 1, b: 2, c: 3}
+> 
+> 
+> 
+> cleanEx()
+> nameEx("is.dict.py")
+> ### * is.dict.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: is.dict.py
+> ### Title: Determines whether or not an object is an instance of a
+> ###   dictionary.
+> ### Aliases: is.dict.py
+> 
+> ### ** Examples
+> 
+> x <- dict.py("a"=1)
+> is.dict.py(x)
+[1] TRUE
+> #TRUE
+> x <- list(1, 2, 3, 4)
+> is.dict.py(x)
+[1] FALSE
+> #FALSE
+> 
+> 
+> 
+> cleanEx()
+> nameEx("is.list.py")
+> ### * is.list.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: is.list.py
+> ### Title: Determines whether or not an object is an instance of a list
+> ### Aliases: is.list.py
+> 
+> ### ** Examples
+> 
+> x <- list.py("a")
+> is.list.py(x)
+[1] TRUE
+> #TRUE
+> x <- 1:10
+> is.dict.py(x)
+[1] FALSE
+> #FALSE
 > 
 > 
 > 
@@ -108,8 +170,8 @@ Type 'q()' to quit R.
 > 
 > ### * <FOOTER>
 > ###
-> cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.33 0.02 0.36 NA NA 
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.504 0.015 0.523 0 0 
 > grDevices::dev.off()
 null device 
           1 

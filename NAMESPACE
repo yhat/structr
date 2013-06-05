@@ -1,4 +1,7 @@
 export(dict.py)
+export(is.dict.py)
+export(is.list.py)
 export(list.py)
 export(zip.dict)
 export(zip.tuple)
+exportMethods(as.character)

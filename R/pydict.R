@@ -152,6 +152,11 @@ pydict <- setRefClass("pydict",
                           item
                         }
                       ))
+
+#'Get the value of a key associated with a dictionary.
+#'
+#'You can use the adict['key'] syntax to access key/values from within
+#'a dictionary--much like Python, Ruby, or Perl.
 setMethod(f="[",
           signature="pydict",
           definition=function(x, i, j, drop) {
@@ -174,6 +179,9 @@ setReplaceMethod(f="[",
 #             adict$iterkeys()
 #           })
 
+#'Function for getting the number of items in a dictionary.
+#'
+#'Use much like length(list()) or length(c(1, 2, 3)).
 setMethod(f="length",
           signature="pydict",
           definition=function(x) {
@@ -205,6 +213,21 @@ dict.py <- function(...) {
   newdict$init()
 }
 
+#'Determines whether or not an object is an instance of a 
+#'dictionary.
+#'
+#'Determines the class of an object and checks to see if it's a dictionary.
+#'
+#'@param object any object
+#'@export
+#'
+#'@examples
+#'x <- dict.py("a"=1)
+#'is.dict.py(x)
+#'#TRUE
+#'x <- list(1, 2, 3, 4)
+#'is.dict.py(x)
+#'#FALSE
 is.dict.py <- function(object) {
   class(object)=="pydict"
 }
