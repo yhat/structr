@@ -3,7 +3,8 @@ paper
 INSPIRATIONS
 ^.*\.Rproj$
 ^\.Rproj\.user$
-.git
+..Rcheck$
+.git$
 foldr.Rproj
 README.md
 .Rproj.user

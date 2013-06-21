@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 JUN 2013 21:15
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  21 JUN 2013 08:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/RtmpWzHYam/Rd2pdf171
-855d971fd1/Rd2.tex
+**/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/RtmpeAenBU/Rd2pdf8f9
+660fc5a27/Rd2.tex
 
-(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/RtmpWzHYam/Rd2pdf1718
-55d971fd1/Rd2.tex
+(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/RtmpeAenBU/Rd2pdf8f96
+60fc5a27/Rd2.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -804,12 +804,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 406.
  ) 
 Here is how much of TeX's memory you used:
  6338 strings out of 493488
- 92302 string characters out of 3141326
+ 92299 string characters out of 3141326
  168046 words of memory out of 3000000
  9401 multiletter control sequences out of 15000+200000
  40684 words of font info for 49 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,27p,306b,586s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,6n,27p,305b,586s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2012/texmf-dist/fonts/enc/dvips/inconsolata/fi4-ec.enc}</usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/inconsolata/Inconsolata.pfb></usr/local/t

@@ -191,6 +191,7 @@ setMethod(f="toString",
 #'@param x a list
 #'@param ... named args
 #'@export
+#'@aliases as.character
 #'
 #'@examples
 #'as.character(list.py(1, 2, 3, 4))

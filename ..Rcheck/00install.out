@@ -13,5 +13,4 @@ Creating a generic function for ‘sapply’ from package ‘base’ in package 
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded
-Attempting to load the environment ‘package:roxygen2’
 * DONE (foldr)
