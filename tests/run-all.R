@@ -1,4 +1,4 @@
 library(testthat)
-library(foldr)
+library(sugar)
 
-test_package("foldr")
+test_package("sugar")

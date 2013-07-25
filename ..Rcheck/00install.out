@@ -1,16 +1,16 @@
-* installing *source* package ‘foldr’ ...
+* installing *source* package ‘sugar’ ...
 ** R
 ** inst
 ** preparing package for lazy loading
-Creating a generic function for ‘toString’ from package ‘base’ in package ‘foldr’
-Creating a generic function for ‘paste’ from package ‘base’ in package ‘foldr’
-Creating a generic function for ‘hist’ from package ‘graphics’ in package ‘foldr’
-Creating a generic function for ‘plot’ from package ‘graphics’ in package ‘foldr’
-Creating a generic function for ‘summary’ from package ‘base’ in package ‘foldr’
-Creating a generic function for ‘lapply’ from package ‘base’ in package ‘foldr’
-Creating a generic function for ‘sapply’ from package ‘base’ in package ‘foldr’
+Creating a generic function for ‘toString’ from package ‘base’ in package ‘sugar’
+Creating a generic function for ‘paste’ from package ‘base’ in package ‘sugar’
+Creating a generic function for ‘hist’ from package ‘graphics’ in package ‘sugar’
+Creating a generic function for ‘plot’ from package ‘graphics’ in package ‘sugar’
+Creating a generic function for ‘summary’ from package ‘base’ in package ‘sugar’
+Creating a generic function for ‘lapply’ from package ‘base’ in package ‘sugar’
+Creating a generic function for ‘sapply’ from package ‘base’ in package ‘sugar’
 ** help
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded
-* DONE (foldr)
+* DONE (sugar)

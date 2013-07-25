@@ -63,20 +63,32 @@ encapsulate <- function(values) {
 dict_repl <- function(object, obj_name) {
   if (class(object)=="data.frame") {
     paste('"',
-        paste(
-          paste("data.frame(",sep=""),
-          paste("", colnames(object), "=", head(object), "...", sep="", collapse=",\n"),
-          sep=""
-        ),
+          paste(
+            paste("data.frame(",sep=""),
+            paste("", colnames(object), "=", head(object), "...", sep="", collapse=",\n"),
+            sep=""
+          ),
           ')"', sep="")
+  } else if (is.vector(object)==TRUE) {
+    object
+#     return (paste("(vector with length ", length(object), ": ", paste(head(object), collapse=", "), "...)", sep=""))
   } else {
     object
   }
 }
 
 unstringify.if.df <- function(x) {
-  if (is.character(x) & substring(x, 1, 9)=="pickled: ") {
-    return (unstringify.object(substring(x, 10)))
+  if (all(is.character(x)) & substring(x, 2, 8)=="pickled") {
+    obj <- unstringify.object(substring(x, 11))
+    if (class(obj)=="data.frame") {
+      return (paste("(data.frame with ", nrow(obj), " obs. of ",
+                    ncol(obj), " variables: ",
+                    paste(colnames(obj), collapse=", "),
+                    ")", sep=""))
+    } else {
+      return (x)
+#       return (paste("(vector with length ", length(obj), ": ", paste(head(obj), collapse=", "), "...)", sep=""))
+    }
   } else {
     return (x)
   }

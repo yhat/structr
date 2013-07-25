@@ -1,0 +1,183 @@
+
+R version 3.0.0 (2013-04-03) -- "Masked Marvel"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "sugar"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('sugar')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("as.character")
+> ### * as.character
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: as.character
+> ### Title: Turns a list into a character vector.
+> ### Aliases: as.character
+> 
+> ### ** Examples
+> 
+> as.character(list.py(1, 2, 3, 4))
+[1] "[1, 2, 3, 4]"
+> 
+> 
+> 
+> cleanEx()
+> nameEx("dict.py")
+> ### * dict.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: dict.py
+> ### Title: Creates an instance of a dict
+> ### Aliases: dict.py
+> ### Keywords: dict, dict.py, key/value
+> 
+> ### ** Examples
+> 
+> (x <- dict.py("a"=1, "b"=2, "c"=3))
+{'a': 1, 'b': 2, 'c': 3}> #{a: 1, b: 2, c: 3}
+> 
+> 
+> 
+> cleanEx()
+> nameEx("is.dict.py")
+> ### * is.dict.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: is.dict.py
+> ### Title: Determines whether or not an object is an instance of a
+> ###   dictionary.
+> ### Aliases: is.dict.py
+> 
+> ### ** Examples
+> 
+> x <- dict.py("a"=1)
+> is.dict.py(x)
+[1] TRUE
+> #TRUE
+> x <- list(1, 2, 3, 4)
+> is.dict.py(x)
+[1] FALSE
+> #FALSE
+> 
+> 
+> 
+> cleanEx()
+> nameEx("is.list.py")
+> ### * is.list.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: is.list.py
+> ### Title: Determines whether or not an object is an instance of a list
+> ### Aliases: is.list.py
+> 
+> ### ** Examples
+> 
+> x <- list.py("a")
+> is.list.py(x)
+[1] TRUE
+> #TRUE
+> x <- 1:10
+> is.dict.py(x)
+[1] FALSE
+> #FALSE
+> 
+> 
+> 
+> cleanEx()
+> nameEx("list.py")
+> ### * list.py
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: list.py
+> ### Title: Creates an instance of a list
+> ### Aliases: list.py
+> ### Keywords: list, list.py
+> 
+> ### ** Examples
+> 
+> x <- list.py(1, 2, 3, 4)
+> #[1, 2, 3, 4]
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zip.dict")
+> ### * zip.dict
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zip.dict
+> ### Title: Combine 2 lists into a dict of key/values
+> ### Aliases: zip.dict
+> ### Keywords: dict, lists zip,
+> 
+> ### ** Examples
+> 
+> x <- list.py(1, 2, 3)
+> y <- list.py("a", "b", "c")
+> zip.dict(x, y)
+{1: 'a', 2: 'b', 3: 'c'}> #{1: 'a', 2: 'b', 3: 'c'}
+> zip.dict(y, x)
+{'a': 1, 'b': 2, 'c': 3}> #{'a': 1, 'b': 2, 'c': 3}
+> 
+> 
+> 
+> cleanEx()
+> nameEx("zip.tuple")
+> ### * zip.tuple
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: zip.tuple
+> ### Title: Combine 2 lists into a list of lists
+> ### Aliases: zip.tuple
+> ### Keywords: lists, zip
+> 
+> ### ** Examples
+> 
+> x <- list.py(1, 2, 3)
+> y <- list.py(4, 5, 6)
+> zip.tuple(x, y)
+[[1, 4], [2, 5], [3, 6]]> #[[1, 4], [2, 5], [3, 6]]
+> y <- list.py("a", "b", "c")
+> zip.tuple(x, y)
+[[1, 'a'], [2, 'b'], [3, 'c']]> #[[1, 'a'], [2, 'b'], [3, 'c']]
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.705 0.02 0.729 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

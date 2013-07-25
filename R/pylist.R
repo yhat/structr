@@ -3,144 +3,146 @@
 
 
 pylist <- setRefClass("pylist",
-                     fields = list( data = "list"),
-                     methods = list(
-                       init = function() {
-                         methods <- getRefClass(class(.self))$methods()
-                         eval(parse(text=paste(".self$", methods)))
-                         .self
-                       },
-                       show = function() {
-                         'visual representation of the list
+                      fields = list( data = "list"),
+                      methods = list(
+                        init = function() {
+                          methods <- getRefClass(class(.self))$methods()
+                          eval(parse(text=paste(".self$", methods)))
+                          .self
+                        },
+                        show = function() {
+                          'visual representation of the list
                           Examples
                           ==================================='
-                         cat(string())
-                       },
-                       string = function() {
-                         'returns a nicely formatted string representation of the list
+                          cat(string())
+                        },
+                        string = function() {
+                          'returns a nicely formatted string representation of the list
                           Examples
                           ==================================='
-                         paste("[", paste(lapply(data, function(item) {
-                           if(is.character(item)) {
-                             return (paste("'", item, "'", sep=""))
-                             } else {
-                               return (as.character(item))
-                             }
-                           }), collapse=", ", sep=""),
-                               "]", sep="")
-                       },
-                       append = function(item) {
-                         'adds an item to the end of the list
+                          paste("[", paste(lapply(data, function(item) {
+                            if(is.character(item)) {
+                              return (paste("'", item, "'", sep=""))
+                            } else if (class(item)=="pydict") {
+                              return (item$string())
+                            }else {
+                              return (as.character(item))
+                            }
+                          }), collapse=", ", sep=""),
+                                "]", sep="")
+                        },
+                        append = function(item) {
+                          'adds an item to the end of the list
                           item - thing you want to add to the list
                           Examples
                           ===================================
-                         '
-                         data <<- base::append(data, item)
-                         TRUE
-                       },
-                       push = function(newvalue) {
-                         'adds an item to the beginning of the list
+                          '
+                          data <<- base::append(data, item)
+                          TRUE
+                        },
+                        push = function(newvalue) {
+                          'adds an item to the beginning of the list
                           Examples
                           ==================================='
-                         data <<- base::append(list(newvalue), data)
-                         TRUE
-                       },
-                       pop = function() {
-                         'gets the last item in the list, removes it from the list, 
-                         then returns it
-                         Examples
-                         ==================================='
-                         popval <- data[count()]
-                         data <<- data[-count()]
-                         unlist(popval)
-                       },
-                       reverse = function() {
-                         'reverses the list and returns a new instance of it
+                          data <<- base::append(list(newvalue), data)
+                          TRUE
+                        },
+                        pop = function() {
+                          'gets the last item in the list, removes it from the list, 
+                          then returns it
                           Examples
                           ==================================='
-                         revdata <- base::rev(data)
-                         pylist$new(data=revdata)
-                       },
-                       count = function() {
-                         'returns the number of items in the list
+                          popval <- data[count()]
+                          data <<- data[-count()]
+                          unlist(popval)
+                        },
+                        reverse = function() {
+                          'reverses the list and returns a new instance of it
                           Examples
                           ==================================='
-                         length(data)
-                       },
-                       insert = function(item, pos) {
-                         "inserts an item at a given position in the list
-                         item - what you want to insert
-                         pos - index you want the item inserted into
-                         Examples
-                         ===================================
-                         "
-                         if (pos > count() || pos < 1) {
-                           return (FALSE)
-                         } else {
-                           data <<- base::append(base::append(data[1:pos], item),
-                                                 data[pos:count()])
-                           return (TRUE)
-                         }
-                       },
-                       index = function(item) {
-                         "gets the index of an item in the list
-                         item - what you're searching for in the list
-                         Examples
-                         ===================================
-                         "
-                         match(item, data)
-                       },
-                       sort = function() {
-                         'sorts the list in place'
-                         o <- base::order(unlist(data))
-                         data <<- data[o]
-                       },
-                       map = function(fn) {
-                         'applys a function to each item in the list, in place
-                         fn - a function to apply to each item in the list
-                         Examples
-                         ===================================
-                         '
-                         data <<- lapply(data, fn)
-                       },
-                       find = function(cond) {
-                         'returns items matching a condition
+                          revdata <- base::rev(data)
+                          pylist$new(data=revdata)
+                        },
+                        count = function() {
+                          'returns the number of items in the list
+                          Examples
+                          ==================================='
+                          length(data)
+                        },
+                        insert = function(item, pos) {
+                          "inserts an item at a given position in the list
+                          item - what you want to insert
+                          pos - index you want the item inserted into
+                          Examples
+                          ===================================
+                          "
+                          if (pos > count() || pos < 1) {
+                            return (FALSE)
+                          } else {
+                            data <<- base::append(base::append(data[1:pos], item),
+                                                  data[pos:count()])
+                            return (TRUE)
+                          }
+                        },
+                        index = function(item) {
+                          "gets the index of an item in the list
+                          item - what you're searching for in the list
+                          Examples
+                          ===================================
+                          "
+                          match(item, data)
+                        },
+                        sort = function() {
+                          'sorts the list in place'
+                          o <- base::order(unlist(data))
+                          data <<- data[o]
+                        },
+                        map = function(fn) {
+                          'applys a function to each item in the list, in place
+                          fn - a function to apply to each item in the list
+                          Examples
+                          ===================================
+                          '
+                          data <<- lapply(data, fn)
+                        },
+                        find = function(cond) {
+                          'returns items matching a condition
                           cond - can be either a function, regex, or object
                           Examples
                           ===================================
                           mylist$find(function(x) { x > 10 })
                           mylist$find("^foo")
-                         '
-                         if (class(cond)=="function") {
-                           slice <- cond(data)
-                         } else if (class(cond)=="character") {
-                           slice <- grep(cond, data)  
-                         }
-                         pylist$new(data=data[slice])
-                       },
-                       contains = function(item){
-                         "checks whether an item exists in the list
+                          '
+                          if (class(cond)=="function") {
+                            slice <- cond(data)
+                          } else if (class(cond)=="character") {
+                            slice <- grep(cond, data)  
+                          }
+                          pylist$new(data=data[slice])
+                        },
+                        contains = function(item){
+                          "checks whether an item exists in the list
                           item - thing you're looking for
                           Examples
                           ===================================
                           "
-                         item %in% data
-                       },
-                       items = function() {
+                          item %in% data
+                        },
+                        items = function() {
                           'returns the items in the list
                           Examples
                           ===================================
-                         '
-                         data
-                       },
-                       iteritems = function() {
-                         'returns an iterable of the items in the list
+                          '
+                          data
+                        },
+                        iteritems = function() {
+                          'returns an iterable of the items in the list
                           Examples
                           ===================================
-                         '
-                         seq(data)
-                       }
-                     ))
+                          '
+                          seq(data)
+                        }
+                        ))
 
 #'Get the value of an index of a list.
 #'
@@ -162,14 +164,14 @@ setMethod(f="[",
           })
 
 setReplaceMethod(f="[",
-          signature="pylist",
-          definition=function(x, i, j, value) {
-            if (length(x) < i) {
-              stop(paste(i, "is out of bounds."))
-            }
-            x$data[i] <- value
-            return (x)
-            })
+                 signature="pylist",
+                 definition=function(x, i, j, value) {
+                   if (length(x) < i) {
+                     stop(paste(i, "is out of bounds."))
+                   }
+                   x$data[i] <- value
+                   return (x)
+                 })
 
 # setMethod(f="seq", "pylist", definition=function(...) {
 #             print(...)

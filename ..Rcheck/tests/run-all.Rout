@@ -16,9 +16,9 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library(testthat)
-> library(foldr)
+> library(sugar)
 > 
-> test_package("foldr")
+> test_package("sugar")
 dicts-generics : ..........
 dicts : .................................
 pylist-generics : ...............................
@@ -31,4 +31,4 @@ In cumsum(x) : NAs introduced by coercion
 > 
 > proc.time()
    user  system elapsed 
-  2.138   0.057   2.188 
+  2.120   0.059   2.173 

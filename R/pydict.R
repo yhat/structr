@@ -102,7 +102,7 @@ pydict <- setRefClass("pydict",
                         update = function(adict) {
                           'takes another dict and adds any keys and their 
                           corresponding values to the dict'
-#                           for (key in adict$iterkeys()) {
+                          #                           for (key in adict$iterkeys()) {
                           for (key in unlist(adict$keys()$data)) {
                             if (! has_key(key)) {
                               add_key(key, adict[key])
@@ -125,14 +125,14 @@ pydict <- setRefClass("pydict",
                         },
                         add_key = function(key, value) {
                           'private method for adding a key to the dict'
-
-                          if (class(value)=="data.frame") {
+                          
+                          if (class(value)=="data.frame" || (is.vector(value)==TRUE & length(value) > 1)) {
                             value <- paste("pickled: ", stringify.object(value), sep="")
                           }
-
+                          
                           key.digest <- digest::digest(key)
                           data[key.digest] <<- value
-#                           obj_name <- bquote(..., globalenv())
+                          #                           obj_name <- bquote(..., globalenv())
                           keymap[key.digest] <<- dict_repl(key, "")
                         },
                         get_key = function(key) {
@@ -167,11 +167,11 @@ setMethod(f="[",
           })
 
 setReplaceMethod(f="[",
-          signature="pydict",
-          definition=function(x, i, j, value) {
-            x$add_key(i, value)
-            return (x)
-          })
+                 signature="pydict",
+                 definition=function(x, i, j, value) {
+                   x$add_key(i, value)
+                   return (x)
+                 })
 
 # setMethod("seq",
 #           signature="pydict",
