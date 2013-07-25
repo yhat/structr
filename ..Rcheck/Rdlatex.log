@@ -4,8 +4,8 @@ This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012)
  restricted \write18 enabled.
 entering extended mode
 
-(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/Rtmp4Kcibu/Rd2pdf1525
-42a160450/Rd2.tex
+(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/Rtmp47DYax/Rd2pdf1565
+277517ca3/Rd2.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -131,8 +131,8 @@ This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012)
  restricted \write18 enabled.
 entering extended mode
 
-(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/Rtmp4Kcibu/Rd2pdf1525
-42a160450/Rd2.tex
+(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/Rtmp47DYax/Rd2pdf1565
+277517ca3/Rd2.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -258,8 +258,8 @@ This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012)
  restricted \write18 enabled.
 entering extended mode
 
-(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/Rtmp4Kcibu/Rd2pdf1525
-42a160450/Rd2.tex
+(/private/var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T/Rtmp47DYax/Rd2pdf1565
+277517ca3/Rd2.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -371,4 +371,4 @@ Output written on Rd2.pdf (9 pages, 86000 bytes).
 Transcript written on Rd2.log.
 Saving output to 'sugar-manual.pdf' ...
 Done
-You may want to clean up by 'rm -rf /var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T//Rtmp4Kcibu/Rd2pdf152542a160450'
+You may want to clean up by 'rm -rf /var/folders/zw/44s85g611czd0zqd79_126_m0000gn/T//Rtmp47DYax/Rd2pdf1565277517ca3'

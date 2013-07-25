@@ -18,4 +18,4 @@ License: FreeBSD
 URL: https://github.com/yhat/sugar
 BugReports: https://github.com/yhat/sugar/issues
 Collate: 'pydict.R' 'pylist.R' 'utils.r'
-Built: R 3.0.0; ; 2013-07-25 19:34:04.762 UTC; unix
+Built: R 3.0.0; ; 2013-07-25 19:44:51.580 UTC; unix

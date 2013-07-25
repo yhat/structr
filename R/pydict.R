@@ -157,6 +157,11 @@ pydict <- setRefClass("pydict",
 #'
 #'You can use the adict['key'] syntax to access key/values from within
 #'a dictionary--much like Python, Ruby, or Perl.
+#'
+#' @name [
+#' @aliases [,pydict-method
+#' @docType methods
+#' @rdname extract-methods
 setMethod(f="[",
           signature="pydict",
           definition=function(x, i, j, drop) {
@@ -166,6 +171,15 @@ setMethod(f="[",
             x$get_key(i)
           })
 
+#'Set the value of a key associated with a dictionary.
+#'
+#'You can use the adict['key'] syntax to set key/values from within
+#'a dictionary--much like Python, Ruby, or Perl.
+#'
+#' @name [
+#' @aliases [<-,pydict-method
+#' @docType methods
+#' @rdname extract-methods
 setReplaceMethod(f="[",
                  signature="pydict",
                  definition=function(x, i, j, value) {
@@ -182,6 +196,11 @@ setReplaceMethod(f="[",
 #'Function for getting the number of items in a dictionary.
 #'
 #'Use much like length(list()) or length(c(1, 2, 3)).
+#'
+#' @name length
+#' @aliases length,pydict-method
+#' @docType methods
+#' @rdname extract-methods
 setMethod(f="length",
           signature="pydict",
           definition=function(x) {

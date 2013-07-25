@@ -148,6 +148,11 @@ pylist <- setRefClass("pylist",
 #'
 #'You can use the adict[idx] syntax to access items from within
 #'a list--much like Python, Ruby, or Perl.
+#'
+#' @name [
+#' @aliases [,pylist-method
+#' @docType methods
+#' @rdname extract-methods
 setMethod(f="[",
           signature="pylist",
           definition=function(x, i, j, drop) {
@@ -163,6 +168,15 @@ setMethod(f="[",
             }
           })
 
+#'Set the value of an index of a list.
+#'
+#'You can use the alist[idx] syntax to set items within
+#'a list--much like Python, Ruby, or Perl.
+#'
+#' @name [
+#' @aliases [<-,pylist-method
+#' @docType methods
+#' @rdname extract-methods
 setReplaceMethod(f="[",
                  signature="pylist",
                  definition=function(x, i, j, value) {
@@ -190,6 +204,11 @@ setMethod(f="toString",
 #'Turns a list into a character vector.
 #'
 #'Generic function that calls the string method for a list.
+#'
+#'@name as.character
+#'@aliases as.character,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 #'@param x a list
 #'@param ... named args
 #'@export
@@ -236,6 +255,11 @@ setMethod(f="plot",
 #'
 #'Generic function for caclulating the sum of the items in a list. If an item is
 #'not numeric an error occurs.
+#'
+#'@name sum
+#'@aliases sum,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 setMethod(f="sum",
           signature="pylist",
           definition=function(x) {
@@ -246,6 +270,11 @@ setMethod(f="sum",
 #'
 #'Generic function for caclulating the cumsum of the items in a list. If an item is
 #'not numeric an error occurs.
+#'
+#'@name cumsum
+#'@aliases cumsum,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 setMethod(f="cumsum",
           signature="pylist",
           definition=function(x) {
@@ -256,6 +285,11 @@ setMethod(f="cumsum",
 #'
 #'Generic function for caclulating the sin of the items in a list. If an item is
 #'not numeric an error occurs.
+#'
+#'@name sin
+#'@aliases sin,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 setMethod(f="sin",
           signature="pylist",
           definition=function(x) {
@@ -266,6 +300,11 @@ setMethod(f="sin",
 #'
 #'Generic function for caclulating the cos of the items in a list. If an item is
 #'not numeric an error occurs.
+#'
+#'@name cos
+#'@aliases cos,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 setMethod(f="cos",
           signature="pylist",
           definition=function(x) {
@@ -276,6 +315,11 @@ setMethod(f="cos",
 #'
 #'Generic function for caclulating the sign of the items in a list. If an item is
 #'not numeric an error occurs.
+#'
+#'@name sign
+#'@aliases sign,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 setMethod(f="sign",
           signature="pylist",
           definition=function(x) {
@@ -350,6 +394,11 @@ setMethod(f="sapply",
 #'Function for getting the number of items in a list
 #'
 #'Use much like length(list(1, 2, 3)) or length(c(1, 2, 3)).
+#'
+#'@name length
+#'@aliases length,pylist-method
+#'@docType methods
+#'@rdname extract-methods
 setMethod(f="length",
           signature="pylist",
           definition=function(x) {
@@ -398,7 +447,7 @@ is.list.py <- function(object) {
 
 "+.py" <- function(e1, e2) {
   if (is.list.py(e1) & is.list.py(e2)) {
-    merge.list(x, y)
+    merge.list(e1, e2)
   } else if (is.dict.py(e1) & is.dict.py(e2)) {
     print()
   }
