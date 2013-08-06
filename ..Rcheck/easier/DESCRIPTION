@@ -1,4 +1,4 @@
-Package: structs
+Package: easier
 Type: Package
 Version: 0.1-1
 Date: 2013-05-29
@@ -10,19 +10,12 @@ Authors@R: c(person("Greg", "Lamp", role = c("aut", "cre"),
     )
 Author: Greg Lamp and Austin Ogilvie
 Maintainer: Greg Lamp <greg@yhathq.com>
-Depends:
-    R (>= 2.12.0)
-Imports:
-    plyr,
-    digest,
-    methods
-Suggests:
-    testthat (>= 0.2)
-Description: structs provides Python-like data types (list and dict) in R
+Depends: R (>= 2.12.0)
+Imports: plyr, digest, methods
+Suggests: testthat (>= 0.2)
+Description: easier provides Python-like data types (list and dict) in R
 License: FreeBSD
-URL: https://github.com/yhat/structs
-BugReports: https://github.com/yhat/structs/issues
-Collate:
-    'pydict.R'
-    'pylist.R'
-    'utils.r'
+URL: https://github.com/yhat/easier
+BugReports: https://github.com/yhat/easier/issues
+Collate: 'pydict.R' 'pylist.R' 'utils.r'
+Built: R 3.0.0; ; 2013-08-06 20:09:45.886 UTC; unix

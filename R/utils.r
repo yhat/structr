@@ -1,4 +1,3 @@
-
 #'Function that takes 2 lists and merges them fairly effeciently
 #'
 #'@param x a list

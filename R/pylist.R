@@ -1,7 +1,3 @@
-# source("R/utils.r")
-# library(plyr)
-
-
 pylist <- setRefClass("pylist",
                       fields = list( data = "list"),
                       methods = list(
@@ -14,7 +10,7 @@ pylist <- setRefClass("pylist",
                           'visual representation of the list
                           Examples
                           ==================================='
-                          cat(string())
+                          cat(paste(string(), "\n", sep=""))
                         },
                         string = function() {
                           'returns a nicely formatted string representation of the list

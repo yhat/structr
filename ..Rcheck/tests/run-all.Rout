@@ -31,4 +31,4 @@ In cumsum(x) : NAs introduced by coercion
 > 
 > proc.time()
    user  system elapsed 
-  1.651   0.042   1.681 
+  1.808   0.055   1.863 

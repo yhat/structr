@@ -1,4 +1,3 @@
-
 pydict <- setRefClass("pydict",
                       fields = list( data = "list", defaultvalue = "ANY", keymap = "list"),
                       methods = list(
@@ -9,7 +8,7 @@ pydict <- setRefClass("pydict",
                         },
                         show = function() {
                           'visual representation of the dict'
-                          cat(string())
+                          cat(paste(string(), "\n", sep=""))
                         },
                         string = function() {
                           'string representation of the dict'
