@@ -1,4 +1,4 @@
 library(testthat)
-library(sugar)
+library(structr)
 
-test_package("sugar")
+test_package("structr")

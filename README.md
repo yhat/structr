@@ -1,4 +1,4 @@
-structs
+structr
 ======
 
 syntactic sugar for R
