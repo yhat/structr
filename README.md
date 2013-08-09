@@ -1,6 +1,6 @@
 structr
 ======
 
-syntactic sugar for R
+Sane data structures for R
 
 
