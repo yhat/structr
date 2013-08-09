@@ -5,9 +5,8 @@ INSPIRATIONS
 ^\.Rproj\.user$
 ..Rcheck$
 .git$
-foldr.Rproj
+structr.Rproj
 README.md
 .Rproj.user
 .Rhistory
 .DS_Store
-static
