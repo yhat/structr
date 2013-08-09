@@ -2,7 +2,7 @@ Package: structr
 Type: Package
 Version: 0.1-1
 Date: 2013-05-29
-Title: A collection of Python-esque data types
+Title: Sane data structures for R
 Authors@R: c(person("Greg", "Lamp", role = c("aut", "cre"),
     email = "greg@yhathq.com"),
     person("Austin", "Ogilvie", role = c("aut", "cre"),
