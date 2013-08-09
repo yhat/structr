@@ -85,8 +85,7 @@ unstringify.if.df <- function(x) {
                     paste(colnames(obj), collapse=", "),
                     ")", sep=""))
     } else {
-      return (x)
-#       return (paste("(vector with length ", length(obj), ": ", paste(head(obj), collapse=", "), "...)", sep=""))
+      return (paste("(vector of length ", length(obj), ": ", paste(head(obj), collapse=", "), "...)", sep=""))
     }
   } else {
     return (x)
