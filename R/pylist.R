@@ -446,7 +446,7 @@ list.py <- function(...) {
 #'is.list.py(x)
 #'#TRUE
 #'x <- 1:10
-#'is.dict.py(x)
+#'is.dict(x)
 #'#FALSE
 is.list.py <- function(object) {
   class(object)=="pylist"
@@ -456,7 +456,7 @@ is.list.py <- function(object) {
 "+.py" <- function(e1, e2) {
   if (is.list.py(e1) & is.list.py(e2)) {
     merge.list(e1, e2)
-  } else if (is.dict.py(e1) & is.dict.py(e2)) {
+  } else if (is.dict(e1) & is.dict(e2)) {
     print()
   }
 }

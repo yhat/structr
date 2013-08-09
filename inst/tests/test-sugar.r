@@ -9,7 +9,7 @@ test_that("%in% works for lists", {
 })
 
 test_that("%in% works for dicts", {
-	x <- dict.py("a"=1, "b"=2, "c"=3)
+	x <- dict("a"=1, "b"=2, "c"=3)
 	expect_that("a" %in% x, is_true())
 	expect_that("d" %in% x, is_false())	
 })
@@ -23,13 +23,13 @@ test_that("%in% works for other stuff", {
 test_that("zip.dict happy path", {
 	x <- list.py("a", "b", "c")
 	y <- list.py(1, 2, 3)
-	test_that(zip.dict(x, y), equals(dict.py("a"=1, "b"=2, "c"=3)))
+	test_that(zip.dict(x, y), equals(dict("a"=1, "b"=2, "c"=3)))
 })
 
 test_that("zip.dict default to shortest list", {
 	x <- list.py("a", "b")
 	y <- list.py(1, 2, 3)
-	test_that(zip.dict(x, y), equals(dict.py("a"=1, "b"=2)))
+	test_that(zip.dict(x, y), equals(dict("a"=1, "b"=2)))
 })
 
 test_that("zip.tuple happy path", {

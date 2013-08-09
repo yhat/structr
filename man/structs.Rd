@@ -1,17 +1,17 @@
-\name{structr}
-\alias{structr}
-\alias{structr}
+\name{structs}
+\alias{structs}
+\alias{structs}
 \docType{package}
 \title{
 Sane data structures for R
 }
 \description{
-	\code{structr} provides you with data structures that are similar to 
+	\code{structs} provides you with data structures that are similar to 
 	data structures commonly found in Python, Ruby, PHP, and other
 	scripting languages. While nearly all of the functionality provided
-	by \code{structr} is possible in base R, \code{structr} provides a similar look
+	by \code{structs} is possible in base R, \code{structs} provides a similar look
 	and feel to other languages that many developers are more comfortable
-	using (\code{\link{list.py}}, \code{\link{dict.py}}). structur also provides a set of functions
+	using (\code{\link{list.py}}, \code{\link{dict}}). structur also provides a set of functions
 	to interact with these data structures. Most of the methods and functions
 	come directly from the Python API. For more informaiton on using structur see
 	below, or visit the github page.
@@ -28,14 +28,14 @@ Sane data structures for R
 
 	Dicts
 
-	\code{\link{dict.py}} is similar to a Python dictionary, a Java HashMap, or a PHP array. It's
+	\code{\link{dict}} is similar to a Python dictionary, a Java HashMap, or a PHP array. It's
 	an abstraction on top of a regular R \code{\link{list}} that functions as a basic key, value store.
 
 	Other functions
 	\tabular{ll}{
 		\code{\link{zip.tuple}} \tab similar to zip() in Python\cr
 		\code{\link{zip.dict}} \tab similar to dict(zip()) in Python\cr
-		\code{\link{is.dict.py}} \tab check if a data structure is a dict\cr
+		\code{\link{is.dict}} \tab check if a data structure is a dict\cr
 		\code{\link{is.list.py}} \tab check if a data structure is a list\cr
 	}
 
@@ -47,7 +47,7 @@ Greg Lamp <greg@yhathq.com>
 \references{
   \url{http://www.yhathq.com/}
   \tabular{ll}{
-	Package: \tab \code{structr}\cr
+	Package: \tab \code{structs}\cr
 	Type: \tab Package\cr
 	Version: \tab 0.1\cr
 	Date: \tab 2013-08-10\cr
@@ -56,10 +56,10 @@ Greg Lamp <greg@yhathq.com>
 }
 \keyword{ package }
 \seealso{
-  \url{http://blog.yhathq.com/posts/structr}
+  \url{http://blog.yhathq.com/posts/structs}
 }
 \examples{
-x <- dict.py()
+x <- dict()
 x["one"] = 1
 x["two"] = 2
 x["three"] = 3

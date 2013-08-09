@@ -11,7 +11,7 @@
 }
 \description{
   Takes 2 lists and converts them into a key => value
-  mapping, which takes the form of a \code{\link{dict.py}}.
+  mapping, which takes the form of a \code{\link{dict}}.
 }
 \examples{
 x <- list.py(1, 2, 3)

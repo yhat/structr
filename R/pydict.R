@@ -213,13 +213,13 @@ setMethod(f="length",
 #'
 #'@param ... a series of key/value pairs in the form \code{key=value}
 #'
-#'@keywords dict, dict.py, key/value
+#'@keywords dict, dict, key/value
 #'@export
 #'
 #'@examples
-#'(x <- dict.py("a"=1, "b"=2, "c"=3))
+#'(x <- dict("a"=1, "b"=2, "c"=3))
 #'#{a: 1, b: 2, c: 3}
-dict.py <- function(...) {
+dict <- function(...) {
   data <- list(...)
   if (is.null(names(data)) & length(data) > 0) {
     stop("No keys specified for dictionary")
@@ -240,20 +240,20 @@ dict.py <- function(...) {
 #'@export
 #'
 #'@examples
-#'x <- dict.py("a"=1)
-#'is.dict.py(x)
+#'x <- dict("a"=1)
+#'is.dict(x)
 #'#TRUE
 #'x <- list(1, 2, 3, 4)
-#'is.dict.py(x)
+#'is.dict(x)
 #'#FALSE
-is.dict.py <- function(object) {
+is.dict <- function(object) {
   class(object)=="pydict"
 }
 
 #'Combine 2 lists into a dict of key/values
 #'
 #'Takes 2 lists and converts them into a key => value mapping, which
-#'takes the form of a \code{\link{dict.py}}.
+#'takes the form of a \code{\link{dict}}.
 #'
 #'@param x a list, vector, or list.py
 #'@param y a second list, vector, or list.py
@@ -269,7 +269,7 @@ is.dict.py <- function(object) {
 #'zip.dict(y, x)
 #'#{'a': 1, 'b': 2, 'c': 3}
 zip.dict <- function(x, y) {
-  dict <- dict.py()
+  dict <- dict()
   for (i in 1:min(length(x), length(y))) {
     key <- x[i]
     dict[key] <- y[i]
@@ -340,8 +340,8 @@ zip.tuple <- function(x, y) {
 # d <- zip.dict(1:10, 1:100 * 10)
 # d
 # 
-# # dict.py(1)
-# d <- dict.py(a=1, b=2)
+# # dict(1)
+# d <- dict(a=1, b=2)
 # d['a'] <- 1
 # d['c'] <- 3
 # d
@@ -355,8 +355,8 @@ zip.tuple <- function(x, y) {
 # d$setdefault(100)
 # d$get("fakekey")
 # 
-# a <- dict.py(a=1, b=2)
-# b <- dict.py(c=1, b=0)
+# a <- dict(a=1, b=2)
+# b <- dict(c=1, b=0)
 # a$update(b)
 # a
 # b$clear()
@@ -364,7 +364,7 @@ zip.tuple <- function(x, y) {
 # 
 # a$iteritems()
 # 
-# test <- dict.py()
+# test <- dict()
 # for (l in letters) {
 #   for (i in 1:10) {
 #     key <- paste(l, i, sep="")
@@ -375,7 +375,7 @@ zip.tuple <- function(x, y) {
 # "x8" %in% test
 # "fakething" %in% test
 # 
-# x <- dict.py(a=1, b=21)
+# x <- dict(a=1, b=21)
 # for(key in seq(x)) {
 #   print(key)
 # }
@@ -384,7 +384,7 @@ zip.tuple <- function(x, y) {
 #   print(item)
 # }
 # 
-# d <- dict.py()
+# d <- dict()
 # d[iris] = "hello"
 # d
 # d[1] = 100

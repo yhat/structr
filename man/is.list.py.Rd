@@ -17,7 +17,7 @@ x <- list.py("a")
 is.list.py(x)
 #TRUE
 x <- 1:10
-is.dict.py(x)
+is.dict(x)
 #FALSE
 }
 

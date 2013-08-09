@@ -1,8 +1,8 @@
-\name{dict.py}
-\alias{dict.py}
+\name{dict}
+\alias{dict}
 \title{Creates an instance of a dict}
 \usage{
-  dict.py(...)
+  dict(...)
 }
 \arguments{
   \item{...}{a series of key/value pairs in the form
@@ -13,10 +13,9 @@
   that is a little more R friendly.
 }
 \examples{
-(x <- dict.py("a"=1, "b"=2, "c"=3))
+(x <- dict("a"=1, "b"=2, "c"=3))
 #{a: 1, b: 2, c: 3}
 }
 \keyword{dict,}
-\keyword{dict.py,}
 \keyword{key/value}
 
