@@ -101,6 +101,18 @@ pylist <- setRefClass("pylist",
                           '
                           data <<- lapply(data, fn)
                         },
+                        forEach = function(fn) {
+                          'applies a given function to team item in a list (similar toforEach in javasript)
+                          Examples
+                          ===================================
+                          mylist$forEach(function(x) {
+                            print(x)
+                          })
+                          '
+                          for(i in 1:length(.self)) {
+                            fn(.self[i])
+                          }
+                        },
                         find = function(cond) {
                           'returns items matching a condition
                           cond - can be either a function, regex, or object
