@@ -20,19 +20,19 @@
 \alias{sin,pylist-method}
 \alias{sum}
 \alias{sum,pylist-method}
-\title{Get the value of a key associated with a dictionary.}
+\title{Get the value of a key associated with a .dictionary.}
 \arguments{
   \item{x}{a list}
 
   \item{...}{named args}
 }
 \description{
-  You can use the adict['key'] syntax to access key/values
-  from within a dictionary--much like Python, Ruby, or
+  You can use the a.dict['key'] syntax to access key/values
+  from within a .dictionary--much like Python, Ruby, or
   Perl.
 
-  You can use the adict['key'] syntax to set key/values
-  from within a dictionary--much like Python, Ruby, or
+  You can use the a.dict['key'] syntax to set key/values
+  from within a .dictionary--much like Python, Ruby, or
   Perl.
 
   Use much like length(list()) or length(c(1, 2, 3)).
@@ -64,6 +64,6 @@
   3)).
 }
 \examples{
-as.character(list.py(1, 2, 3, 4))
+as.character(.list(1, 2, 3, 4))
 }
 

@@ -1,4 +1,4 @@
-Package: structs
+Package: dot
 Type: Package
 Version: 0.1-1
 Date: 2013-08-10
@@ -18,10 +18,10 @@ Imports:
     methods
 Suggests:
     testthat (>= 0.2)
-Description: structs provides Python-like data types (list and dict) in R
+Description: dot provides Python-like data types (list and dict) in R
 License: FreeBSD
-URL: https://github.com/yhat/structs
-BugReports: https://github.com/yhat/structs/issues
+URL: https://github.com/yhat/dot
+BugReports: https://github.com/yhat/dot/issues
 Collate:
     'pydict.R'
     'pylist.R'

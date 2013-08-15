@@ -223,7 +223,7 @@ setMethod(f="toString",
 #'@aliases as.character
 #'
 #'@examples
-#'as.character(list.py(1, 2, 3, 4))
+#'as.character(.list(1, 2, 3, 4))
 setMethod(f="as.character",
           signature="pylist",
           definition=function(x, ...) {
@@ -419,16 +419,16 @@ setMethod(f="length",
 #'more R friendly.
 #'
 #'@param ... a series of values seperated by a comma. NOTE: a vector will be treated 
-#'as an individual item. i.e. \code{list.py(1:100)} will yield a list with 1 item, whereas
-#'\code{list.py(1, 2, 3, 4)} will yield a list with 4 items
+#'as an individual item. i.e. \code{.list(1:100)} will yield a list with 1 item, whereas
+#'\code{.list(1, 2, 3, 4)} will yield a list with 4 items
 #'
-#'@keywords list, list.py
+#'@keywords list, .list
 #'@export
 #'
 #'@examples
-#'x <- list.py(1, 2, 3, 4)
+#'x <- .list(1, 2, 3, 4)
 #'#[1, 2, 3, 4]
-list.py <- function(...) {
+.list <- function(...) {
   newlist <- pylist$new(data=list(...))
   newlist$init()
 }
@@ -442,21 +442,21 @@ list.py <- function(...) {
 #'@export
 #'
 #'@examples
-#'x <- list.py("a")
-#'is.list.py(x)
+#'x <- .list("a")
+#'is..list(x)
 #'#TRUE
 #'x <- 1:10
-#'is.dict(x)
+#'is..dict(x)
 #'#FALSE
-is.list.py <- function(object) {
+is..list <- function(object) {
   class(object)=="pylist"
 }
 
 
 "+.py" <- function(e1, e2) {
-  if (is.list.py(e1) & is.list.py(e2)) {
+  if (is..list(e1) & is..list(e2)) {
     merge.list(e1, e2)
-  } else if (is.dict(e1) & is.dict(e2)) {
+  } else if (is..dict(e1) & is..dict(e2)) {
     print()
   }
 }
@@ -467,83 +467,3 @@ is.list.py <- function(object) {
   pylist$new(data=merge.list(x$data, y$data))
 }
 
-# 
-# d <- list.py(1, 2, 3)
-# 
-# x <- list.py(1, 2, 3)
-# y <- list.py(4, 5, "hello")
-# x + y
-# 
-# 2 %in% x
-# 
-# 
-# test <- list.py(100, 200)
-# test$append(300)
-# test$append("hello")
-# test$pop()
-# test$push("hello")
-# test$reverse()
-# test$count()
-# test$insert("hello", 100)
-# test$insert("goodbye", 2)
-# test$insert(TRUE, 2)
-# test$index("goodbye")
-# test$sort()
-# test
-# test <- list.py(100, 200, 300, 400)
-# test$map(function(x) {
-#   x * 1.5
-# })
-# test
-# each(test, print)
-# each(test, function(x) {
-#   print(x * 1.5)
-# })
-# 
-# test <- list.py("greg", "sam", "stan", "paul", "sammy")
-# test$find("sam")
-# test$find("^s")
-# test$find("^sa")
-# test <- list.py(1, 2, 3, 4, 5)
-# test$find(function(x) { x > 2.5 })
-# 
-# test[1]
-# test <- list.py(1, 2, 3, 4)
-# sum(test)
-# hist(test)
-# plot(test)
-# 
-# nested <- list.py(
-#   list.py(100, 200, 300),
-#   list.py(400, 500)
-# )
-# nested
-# nested[1][2]
-# nested[2][1:2]
-# nested[1][2]
-# nested[1]
-# nested
-# 
-# 
-# x <- list.py(1, 2, 4, 5)
-# x[1:2]
-# nested[1][1:2]
-# 
-# summary(list.py(100, "austin", 200, 400, "austin", "greg"))
-# summary(nested)# :(
-# 
-# 
-# for (i in seq(x)) {
-#   print(i)
-# }
-# 
-# for (i in x$items()) {
-#   print(i)
-# }
-# 
-# lapply(d, print)
-# ldply(d, function(x) { x + 1 }, .progress="text")
-# 
-# 
-# summary(d)
-# summary(nested)
