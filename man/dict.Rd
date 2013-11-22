@@ -1,6 +1,6 @@
 \name{dict}
 \alias{dict}
-\title{Creates an instance of a .dict}
+\title{Creates an instance of a dict}
 \usage{
   dict(...)
 }
@@ -13,9 +13,9 @@
   that is a little more R friendly.
 }
 \examples{
-(x <- .dict("a"=1, "b"=2, "c"=3))
+(x <- dict("a"=1, "b"=2, "c"=3))
 #{a: 1, b: 2, c: 3}
 }
-\keyword{.dict,}
+\keyword{dict,}
 \keyword{key/value}
 

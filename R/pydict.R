@@ -7,11 +7,11 @@ pydict <- setRefClass("pydict",
                           .self
                         },
                         show = function() {
-                          'visual representation of the .dict'
+                          'visual representation of the dict'
                           cat(paste(string(), "\n", sep=""))
                         },
                         string = function() {
-                          'string representation of the .dict'
+                          'string representation of the dict'
                           key.strings <- encapsulate(keys()$data)
                           value.strings <- encapsulate(data)
                           value.strings <- lapply(value.strings, unstringify.if.df)
@@ -20,7 +20,7 @@ pydict <- setRefClass("pydict",
                                 "}", sep="")
                         },
                         count = function() {
-                          'number of items in the .dict'
+                          'number of items in the dict'
                           length(data)
                         },
                         keys = function() {
@@ -40,7 +40,7 @@ pydict <- setRefClass("pydict",
                           unlist(items)
                         },
                         values = function() {
-                          'returns a pylist of the .dict values'
+                          'returns a pylist of the dict values'
                           vals <- data
                           names(vals) <- NULL
                           pylist$new(data=vals)
@@ -67,7 +67,7 @@ pydict <- setRefClass("pydict",
                         },
                         pop = function(key) {
                           'gets the value associated with the given key and
-                          removes it from the .dictionary'
+                          removes it from the dictionary'
                           value <- .self$get(key)
                           if (!is.na(value)) {
                             idx <- index(key)
@@ -78,43 +78,43 @@ pydict <- setRefClass("pydict",
                         },
                         popitem = function() {
                           'gets the key value pair associated with the given key and
-                          removes it from the .dictionary'
+                          removes it from the dictionary'
                           if (count() > 0) {
                             key <- keys()[1]
                             value <- unlist(.self[key])
                             idx <- index(key)
                             data[idx] <<- NULL
                             keymap[idx] <<- NULL
-                            .list(key, value)
+                            list.py(key, value)
                           } else {
                             NA
                           }
                         },
                         setdefault = function(value) {
-                          'sets the default value for the .dict'
+                          'sets the default value for the dict'
                           defaultvalue <<- value
                         },
                         has_key = function(key) {
-                          'determines whether or not a key is in the .dict'
+                          'determines whether or not a key is in the dict'
                           digest::digest(key) %in% names(data) || key %in% keymap
                         },
-                        update = function(a.dict) {
-                          'takes another .dict and adds any keys and their 
-                          corresponding values to the .dict'
-                          #                           for (key in a.dict$iterkeys()) {
-                          for (key in unlist(a.dict$keys()$data)) {
+                        update = function(adict) {
+                          'takes another dict and adds any keys and their 
+                          corresponding values to the dict'
+                          #                           for (key in adict$iterkeys()) {
+                          for (key in unlist(adict$keys()$data)) {
                             if (! has_key(key)) {
-                              add_key(key, a.dict[key])
+                              add_key(key, adict[key])
                             }
                           }
                         },
                         clear = function() {
-                          'removes all data from the .dict'
+                          'removes all data from the dict'
                           data <<- list()
                           keymap <<- list()
                         },
                         items = function() {
-                          'returns the keys and values of the .dict as a
+                          'returns the keys and values of the dict as a
                           pylist of [key, value] pairs'
                           zip.tuple(keymap, data)
                         },
@@ -123,7 +123,7 @@ pydict <- setRefClass("pydict",
                           seq(items())
                         },
                         add_key = function(key, value) {
-                          'private method for adding a key to the .dict'
+                          'private method for adding a key to the dict'
                           
                           if (class(value)=="data.frame" || (is.vector(value)==TRUE & length(value) > 1)) {
                             value <- paste("pickled: ", stringify.object(value), sep="")
@@ -135,7 +135,7 @@ pydict <- setRefClass("pydict",
                           keymap[key.digest] <<- dict_repl(key, "")
                         },
                         get_key = function(key) {
-                          'private method for retrieving a key/value from the .dict'
+                          'private method for retrieving a key/value from the dict'
                           key.digest <- digest::digest(key)
                           if (! key.digest %in% names(data)) {
                             key.digest <- names(keymap)[keymap==key]
@@ -152,10 +152,10 @@ pydict <- setRefClass("pydict",
                         }
                       ))
 
-#'Get the value of a key associated with a .dictionary.
+#'Get the value of a key associated with a dictionary.
 #'
-#'You can use the a.dict['key'] syntax to access key/values from within
-#'a .dictionary--much like Python, Ruby, or Perl.
+#'You can use the adict['key'] syntax to access key/values from within
+#'a dictionary--much like Python, Ruby, or Perl.
 #'
 #' @name [
 #' @aliases [,pydict-method
@@ -165,15 +165,15 @@ setMethod(f="[",
           signature="pydict",
           definition=function(x, i, j, drop) {
             if (x$has_key(i)==FALSE) {
-              stop(paste(i, "not in .dictionary"))
+              stop(paste(i, "not in dictionary"))
             }
             x$get_key(i)
           })
 
-#'Set the value of a key associated with a .dictionary.
+#'Set the value of a key associated with a dictionary.
 #'
-#'You can use the a.dict['key'] syntax to set key/values from within
-#'a .dictionary--much like Python, Ruby, or Perl.
+#'You can use the adict['key'] syntax to set key/values from within
+#'a dictionary--much like Python, Ruby, or Perl.
 #'
 #' @name [
 #' @aliases [<-,pydict-method
@@ -188,11 +188,11 @@ setReplaceMethod(f="[",
 
 # setMethod("seq",
 #           signature="pydict",
-#           definition=function(a.dict) {
-#             a.dict$iterkeys()
+#           definition=function(adict) {
+#             adict$iterkeys()
 #           })
 
-#'Function for getting the number of items in a .dictionary.
+#'Function for getting the number of items in a dictionary.
 #'
 #'Use much like length(list()) or length(c(1, 2, 3)).
 #'
@@ -206,92 +206,75 @@ setMethod(f="length",
             x$count()
           })
 
-#'Creates an instance of a .dict
+#'Creates an instance of a dict
 #'
 #'This is a wrapper function around the \code{pydict$new} that is a little
 #'more R friendly.
 #'
 #'@param ... a series of key/value pairs in the form \code{key=value}
 #'
-#'@keywords .dict, .dict, key/value
+#'@keywords dict, dict, key/value
 #'@export
 #'
 #'@examples
-#'(x <- .dict("a"=1, "b"=2, "c"=3))
+#'(x <- dict("a"=1, "b"=2, "c"=3))
 #'#{a: 1, b: 2, c: 3}
 dict <- function(...) {
   data <- list(...)
   if (is.null(names(data)) & length(data) > 0) {
-    stop("No keys specified for .dictionary")
+    stop("No keys specified for dictionary")
   }
   keymap <- lapply(names(data), I)
   names(keymap) <- lapply(keymap, digest::digest)
   names(data) <- lapply(names(data), digest::digest)
-  new.dict <- pydict$new(data=data, keymap=keymap)
-  new.dict$init()
-}
-
-#'Creates an instance of a .dict
-#'
-#'This is a wrapper function around the \code{pydict$new} that is a little
-#'more R friendly.
-#'
-#'@param ... a series of key/value pairs in the form \code{key=value}
-#'
-#'@keywords .dict, .dict, key/value
-#'@export
-#'
-#'@examples
-#'(x <- .dict("a"=1, "b"=2, "c"=3))
-#'#{a: 1, b: 2, c: 3}
-.dict <- function(...) {
-  dict(...)
+  newdict <- pydict$new(data=data, keymap=keymap)
+  newdict$init()
 }
 
 #'Determines whether or not an object is an instance of a 
-#'.dictionary.
+#'dictionary.
 #'
-#'Determines the class of an object and checks to see if it's a .dictionary.
+#'Determines the class of an object and checks to see if it's a dictionary.
 #'
 #'@param object any object
 #'@export
 #'
 #'@examples
-#'x <- .dict("a"=1)
-#'is..dict(x)
+#'x <- dict("a"=1)
+#'is.dict(x)
 #'#TRUE
 #'x <- list(1, 2, 3, 4)
-#'is..dict(x)
+#'is.dict(x)
 #'#FALSE
-is..dict <- function(object) {
+is.dict <- function(object) {
   class(object)=="pydict"
 }
 
-#'Combine 2 lists into a .dict of key/values
+#'Combine 2 lists into a dict of key/values
 #'
 #'Takes 2 lists and converts them into a key => value mapping, which
-#'takes the form of a \code{\link{.dict}}.
+#'takes the form of a \code{\link{dict}}.
 #'
-#'@param x a list, vector, or .list
-#'@param y a second list, vector, or .list
+#'@param x a list, vector, or list.py
+#'@param y a second list, vector, or list.py
 #'
-#'@keywords zip, .dict, lists
+#'@keywords zip, dict, lists
 #'
 #'@export
 #'@examples
-#'x <- .list(1, 2, 3)
-#'y <- .list("a", "b", "c")
+#'x <- list.py(1, 2, 3)
+#'y <- list.py("a", "b", "c")
 #'zip.dict(x, y)
 #'#{1: 'a', 2: 'b', 3: 'c'}
 #'zip.dict(y, x)
 #'#{'a': 1, 'b': 2, 'c': 3}
 zip.dict <- function(x, y) {
-  .dict <- .dict()
+  dict <- dict()
   for (i in 1:min(length(x), length(y))) {
     key <- x[i]
-    .dict[key] <- y[i]
+    dict[key] <- y[i]
   }
-  .dict
+  dict
 }
 
 #'Combine 2 lists into a list of lists
@@ -300,25 +283,25 @@ zip.dict <- function(x, y) {
 #'from each of the argument sequences.  The returned list is truncated
 #'in length to the length of the shortest argument sequence.
 #'
-#'@param x a list, vector, or .list
-#'@param y a second list, vector, or .list
+#'@param x a list, vector, or list.py
+#'@param y a second list, vector, or list.py
 #'
 #'@keywords lists, zip
 #'
 #'@export
 #'@examples
-#'x <- .list(1, 2, 3)
-#'y <- .list(4, 5, 6)
+#'x <- list.py(1, 2, 3)
+#'y <- list.py(4, 5, 6)
 #'zip.tuple(x, y)
 #'#[[1, 4], [2, 5], [3, 6]]
-#'y <- .list("a", "b", "c")
+#'y <- list.py("a", "b", "c")
 #'zip.tuple(x, y)
 #'#[[1, 'a'], [2, 'b'], [3, 'c']]
 zip.tuple <- function(x, y) {
-  alist <- .list()
+  alist <- list.py()
   for (i in 1:min(length(x), length(y))) {
     key <- x[i]
-    alist$append(.list(x[i], y[i]))
+    alist$append(list.py(x[i], y[i]))
   }
   alist
 }
@@ -333,3 +316,75 @@ zip.tuple <- function(x, y) {
   }
 }
 
+# d <- zip.tuple(1:10, 1:100 * 10)
+# d
+# 
+# d <- zip.tuple(list.py(1, 2, 3), list.py("a", "b", "c"))
+# d
+# 
+# d <- zip.tuple(1:100, 1:100 * 10)
+# d
+# 
+# 
+# d <- zip.dict(1:10, 1:100 * 10)
+# d
+# 
+# d <- zip.dict(letters, 1:100 * 10)
+# d
+# 
+# 
+# for (item in seq(zip.tuple(1:10, 1:10))) {
+#   print(item)
+# }
+# 
+# d <- zip.dict(1:10, 1:100 * 10)
+# d
+# 
+# # dict(1)
+# d <- dict(a=1, b=2)
+# d['a'] <- 1
+# d['c'] <- 3
+# d
+# d$keys()
+# sum(d$values())
+# d$get("a")
+# d$get("fake", 10)
+# d$pop("a")
+# d$popitem()
+# d
+# d$setdefault(100)
+# d$get("fakekey")
+# 
+# a <- dict(a=1, b=2)
+# b <- dict(c=1, b=0)
+# a$update(b)
+# a
+# b$clear()
+# b
+# 
+# a$iteritems()
+# 
+# test <- dict()
+# for (l in letters) {
+#   for (i in 1:10) {
+#     key <- paste(l, i, sep="")
+#     test[key] = i
+#   }
+# }
+# test['a2']
+# "x8" %in% test
+# "fakething" %in% test
+# 
+# x <- dict(a=1, b=21)
+# for(key in seq(x)) {
+#   print(key)
+# }
+# 
+# for (item in x$iteritems()) {
+#   print(item)
+# }
+# 
+# d <- dict()
+# d[iris] = "hello"
+# d
+# d[1] = 100

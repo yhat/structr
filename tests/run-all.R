@@ -1,4 +1,4 @@
 library(testthat)
-library(dot)
+library(structs)
 
-test_package("dot")
+test_package("structs")
